@@ -1,13 +1,13 @@
 // pages/LoginPage.js
 import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo/amygdala_logo-crop.jpg';
+// import logo from '../assets/logo/amygdala_logo-crop.jpg';
 import '../App.css'; 
-import Footer from '../components/Footer';
+ //import Footer from '../components/Footer';
 
-import { login } from '../api/authAPI';
-import Auth from '../utils/auth';
-import { set } from 'date-fns';
+// import { login } from '../api/authAPI';
+// import Auth from '../utils/auth';
+// import { set } from 'date-fns';
 
 const LoginPage = () => {
   const [loginCheck, setLoginCheck] = useState(false);
