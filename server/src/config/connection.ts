@@ -1,7 +1,20 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/techmatchup');
+const MONGODB_URI = process.env.MONGODB_URI || '';
 
-const db = mongoose.connection;
+const db = async (): Promise<typeof mongoose.connection> => {
+    try {
+        console.log(`ATTEMPTING TO CONNECT TO DATABSE WITH URI: ${MONGODB_URI}`);
+        await mongoose.connect(MONGODB_URI);
+        console.log('Database connected.');
+        return mongoose.connection;
+    } 
+    catch (error) {
+        console.error('Database connection error:', error);
+        throw new Error('Database connection failed.');
+    }
+};
 
 export default db;
