@@ -129,16 +129,6 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   cursor: pointer;
 }
 
-.invalid-feedback {
-  color: red;
-  background: black;
-  font-size: 0.9em;
-  position: relative;
-  padding: 10px;
-  top: -10px;
-  display: inline-block;
-}
-
 /*-------  forgot passowrd & sign up links */
 .login-wrap a {
   color: #fff;

@@ -7,10 +7,10 @@ export const GET_ME = gql`
         username
         email
         phonenumber
-        vehicles {
-          _id
-          model
-        }
+        # vehicles {
+        #   _id
+        #   model
+        # }
     }
   }
 `;
