@@ -1,12 +1,12 @@
 // pages/LoginPage.js
 import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo/car-patron-logo.png';
+// import logo from '../assets/logo/car-patron-logo.png';
 import '../App.css'; 
-import LoginForm from './LoginForm';
-import { login } from '../api/authAPI';
+// import LoginForm from './LoginForm';
+// import { login } from '../api/authAPI';
 import Auth from '../utils/auth';
-import { set } from 'date-fns';
+// import { set } from 'date-fns';
 
 
 const LoginPage = () => {
