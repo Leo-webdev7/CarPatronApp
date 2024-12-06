@@ -1,5 +1,5 @@
 import '../App.css';
-// import Header from '../components/Header';
+import Header from '../components/Header';
 // import Footer from "../components/Footer";
 //import Nav2 from "../components/Nav2"
 // import Nav from "../components/Nav"

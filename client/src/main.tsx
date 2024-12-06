@@ -2,16 +2,16 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-import Home from './pages/Home';
-import AddVehicle from './pages/AddVehicle'
-import ErrorPage from './pages/Errorpage';
+/* import Home from './pages/Home';
+import AddVehicle from './pages/AddVehicle' */
+import ErrorPage from './pages/ErrorPage';
 import LoginPage from './pages/LoginPage';
-import ProfilePage from './pages/ProfilePage';
+/* import ProfilePage from './pages/ProfilePage';
 import Reminders from './pages/Reminders';
 import ServiceRecords from './pages/ServiceRecords';
 import SignupPage from './pages/SignUpPage';
 import VehicleDetails from './pages/VehicleDetails';
-import VehicleExpenses from './pages/VehicleExpenses';
+import VehicleExpenses from './pages/VehicleExpenses'; */
 
 const router = createBrowserRouter([
   {
@@ -19,15 +19,15 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
+      /* {
         index: true,
         element: <SignupPage/>
-      },
+      }, */
       {
         index: true,
         element: <LoginPage/>
       },
-      {
+      /* {
         index: true,
         element: <Home />
       },
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <VehicleExpenses/>
-      }, 
+      },  */
     ],
   },
 ]);
