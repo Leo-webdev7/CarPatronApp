@@ -1,46 +1,51 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-import Matchup from '../models/Matchup';
+import '../App.css';
+import Header from '../components/Header';
+import Footer from "../components/Footer";
+import Nav2 from "../components/Nav2"
+import Nav from "../components/Nav"
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Auth from '../utils/auth';
+// import Nav from "../components/Nav";
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
-    fetchPolicy: "no-cache"
-  });
 
-  const matchupList = data?.matchups || [];
 
-  return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
-      </div>
-      <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ul className="square">
-            {matchupList.map((matchup: Matchup) => {
-              return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-      <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
-        </Link>
-      </div>
-    </div>
-  );
-};
+function HomePage () {
+    const [loginCheck, setLoginCheck] = useState(false);
+    const navigate = useNavigate();
 
-export default Home;
+    useEffect(() => {
+        const checkLogin = () => {
+            if (Auth.loggedIn()) {
+                setLoginCheck(true);  // User is logged in
+            } else {
+                // If not logged in, log out and redirect
+                Auth.logout();
+                alert(`Not Logged In/Session Expired!\nPlease Log In`);
+                navigate('/');  // Redirect to login page
+            }
+        };
+        checkLogin();
+    }, [navigate]);
+
+    if (!loginCheck) {
+        return null;  // Render nothing until login check is done
+    }
+
+    return (
+        <div className="welcome-wrap">
+            <Header />
+            {/* <Nav2 /> */}
+            <h1>
+                Welcome to Amygdala!
+            </h1>
+            <h2>
+                We are happy you are here!
+            </h2>
+            <Nav />
+            <Footer />
+        </div>
+    )
+}
+
+export default HomePage;
