@@ -3,5 +3,4 @@ export interface User {
   email: string | null;
   phonenumber: string | null;
   password: string | null;
-  vehicles: [];
 }
