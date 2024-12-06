@@ -2,59 +2,59 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-import Home from './pages/Home';
-import AddVehicle from './pages/AddVehicle'
-import ErrorPage from './pages/Errorpage';
+// import Home from './pages/Home';
+// import AddVehicle from './pages/AddVehicle'
+// import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
-import ProfilePage from './pages/ProfilePage';
-import Reminders from './pages/Reminders';
-import ServiceRecords from './pages/ServiceRecords';
+// import ProfilePage from './pages/ProfilePage';
+// import Reminders from './pages/Reminders';
+// import ServiceRecords from './pages/ServiceRecords';
 import SignupPage from './pages/SignUpPage';
-import VehicleDetails from './pages/VehicleDetails';
-import VehicleExpenses from './pages/VehicleExpenses';
+// import VehicleDetails from './pages/VehicleDetails';
+// import VehicleExpenses from './pages/VehicleExpenses';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <SignupPage/>
-      },
       {
         index: true,
         element: <LoginPage/>
       },
       {
-        index: true,
-        element: <Home />
+        path: '/SignupPage',
+        element: <SignupPage/>
       },
-      {
-        index: true,
-        element: <AddVehicle/>
-      },
-      {
-        index: true,
-        element: <ProfilePage/>
-      },
-      {
-        index: true,
-        element: <Reminders/>
-      },
-      {
-        index: true,
-        element: <ServiceRecords/>
-      },
-      {
-        index: true,
-        element: <VehicleDetails/>
-      },
-      {
-        index: true,
-        element: <VehicleExpenses/>
-      }, 
+      // {
+      //   path: '/Home',
+      //   element: <Home />
+      // },
+      // {
+      //   path: '/AddVehicle',
+      //   element: <AddVehicle/>
+      // },
+      // {
+      //   path: '/ProfilePage',
+      //   element: <ProfilePage/>
+      // },
+      // {
+      //   path: '/Reminders',
+      //   element: <Reminders/>
+      // },
+      // {
+      //   path: '/ServiceRecords',
+      //   element: <ServiceRecords/>
+      // },
+      // {
+      //   path: '/VehicleDetails',
+      //   element: <VehicleDetails/>
+      // },
+      // {
+      //   path: '/VehicleExpenses',
+      //   element: <VehicleExpenses/>
+      // }, 
     ],
   },
 ]);

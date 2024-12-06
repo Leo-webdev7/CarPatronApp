@@ -8,9 +8,10 @@ import Auth from '../utils/auth';
 import type { User } from '../models/User';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
-const SignupForm = ({}: { handleModalClose: () => void }) => {
+const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '',
+      vehicles: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -49,6 +50,8 @@ const SignupForm = ({}: { handleModalClose: () => void }) => {
       username: '',
       email: '',
       password: '',
+      phonenumber: '',
+      vehicles: [],
     });
   };
 

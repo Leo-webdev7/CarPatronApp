@@ -5,7 +5,12 @@ export const GET_ME = gql`
     me {
         _id
         username
-        email       
+        email
+        phonenumber
+        vehicles {
+          _id
+          model
+        }
     }
   }
 `;
