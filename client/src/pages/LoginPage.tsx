@@ -1,15 +1,13 @@
 // pages/LoginPage.js
-import logo from '../assets/logo/car-patron-logo.png';
 import '../App.css'; 
 import LoginForm from '../components/LoginForm';
+import Header from '../components/Header';
 
 const LoginPage = () => {
   return (
     <>
     <div className="login-page">
-      <header>
-        <a href="/"><img src={logo}  alt="Car Patron - Vehicle Maintenance Management" className="logo" /></a>
-      </header>
+      <Header />
       <LoginForm />
     </div>
     </>
