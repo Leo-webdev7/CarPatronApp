@@ -6,7 +6,7 @@ import App from './App';
 // import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
-// import ProfilePage from './pages/ProfilePage';
+import ProfilePage from './pages/ProfilePage';
 // import Reminders from './pages/Reminders';
 // import ServiceRecords from './pages/ServiceRecords';
 import SignupPage from './pages/SignUpPage';
@@ -35,10 +35,10 @@ const router = createBrowserRouter([
       //   path: '/AddVehicle',
       //   element: <AddVehicle/>
       // },
-      // {
-      //   path: '/ProfilePage',
-      //   element: <ProfilePage/>
-      // },
+      {
+        path: '/ProfilePage',
+        element: <ProfilePage/>
+      },
       // {
       //   path: '/Reminders',
       //   element: <Reminders/>
