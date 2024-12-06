@@ -5,7 +5,7 @@ import { QUERY_TECH } from '../utils/queries';
 import { CREATE_MATCHUP } from '../utils/mutations';
 import Tech from '../models/Tech';
 
-const Matchup = () => {
+const ProfilePage = () => {
   const { loading, data } = useQuery(QUERY_TECH);
 
   const techList = data?.tech || [];
@@ -83,4 +83,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default ProfilePage;

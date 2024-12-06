@@ -3,26 +3,58 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
 import Home from './pages/Home';
-import Matchup from './pages/ProfilePage';
-import Vote from './pages/VehicleDetails';
-import NotFound from './pages/AddVehicle';
+import AddVehicle from './pages/AddVehicle'
+import ErrorPage from './pages/Errorpage';
+import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
+import Reminders from './pages/Reminders';
+import ServiceRecords from './pages/ServiceRecords';
+import SignupPage from './pages/SignUpPage';
+import VehicleDetails from './pages/VehicleDetails';
+import VehicleExpenses from './pages/VehicleExpenses';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <Home />
-      }, {
-        path: '/matchup',
-        element: <Matchup />
-      }, {
-        path: '/matchup/:id',
-        element: <Vote />
+        element: <SignupPage/>
       },
+      {
+        index: true,
+        element: <LoginPage/>
+      },
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        index: true,
+        element: <AddVehicle/>
+      },
+      {
+        index: true,
+        element: <ProfilePage/>
+      },
+      {
+        index: true,
+        element: <Reminders/>
+      },
+      {
+        index: true,
+        element: <ServiceRecords/>
+      },
+      {
+        index: true,
+        element: <VehicleDetails/>
+      },
+      {
+        index: true,
+        element: <VehicleExpenses/>
+      }, 
     ],
   },
 ]);

@@ -1,9 +1,9 @@
 // pages/SignupPage.js
 import { useState } from 'react';
-import logo from '../assets/logo/amygdala_logo-crop.jpg';
+// import logo from '../assets/logo/amygdala_logo-crop.jpg';
 import '../App.css'; 
-import Footer from '../components/Footer';
-import { createUser } from '../api/userAPI';
+// import Footer from '../components/Footer';
+// import { createUser } from '../api/userAPI';
 
 const SignupPage = () => {
   const [signUpData, setSignUpData] = useState({
