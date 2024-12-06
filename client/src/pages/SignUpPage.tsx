@@ -1,7 +1,7 @@
 // pages/SignupPage.js
 import logo from '../assets/logo/car-patron-logo.png';
 import '../App.css'; 
-import SignupForm from './components/SignupForm';
+import SignupForm from '../components/SignupForm.js';
 
 const SignupPage = () => {
   return (

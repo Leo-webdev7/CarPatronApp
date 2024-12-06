@@ -1,9 +1,7 @@
 // pages/LoginPage.js
 import logo from '../assets/logo/car-patron-logo.png';
 import '../App.css'; 
-import LoginForm from './components/LoginForm';
-
-
+import LoginForm from '../components/LoginForm';
 
 const LoginPage = () => {
   return (
