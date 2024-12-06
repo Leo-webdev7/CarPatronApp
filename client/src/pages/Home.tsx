@@ -1,11 +1,11 @@
 import '../App.css';
-import Header from '../components/Header';
-import Footer from "../components/Footer";
-import Nav2 from "../components/Nav2"
-import Nav from "../components/Nav"
+// import Header from '../components/Header';
+// import Footer from "../components/Footer";
+//import Nav2 from "../components/Nav2"
+// import Nav from "../components/Nav"
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 // import Nav from "../components/Nav";
 
 
