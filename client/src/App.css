@@ -22,9 +22,9 @@ html, body,
   padding: 0;
 }
 
-.App {
+/* .App {
   background: linear-gradient(357.09deg, #92d9c6 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%);
-}
+} */
 
 body {
   margin: 0 auto;
@@ -43,7 +43,7 @@ body {
   margin: 0 auto;
 }
 
-nav.updated-nav-tk {
+/* nav.updated-nav-tk {
   background: #fff;
   max-width: 400px;
   width: 100%;
@@ -72,12 +72,12 @@ nav.updated-nav-tk a {
 nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   color: #681e67;
   background: #abdad9;
-}
+} */
 
 /* -       Login Page & Signup Page-------- */
 
 .login-page, .signup-page {
-  background: linear-gradient(357.09deg, #DD64D8 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%);
+  /* background: linear-gradient(357.09deg, #DD64D8 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%); */
   max-width: 100%;
   height: 100%;
   display: block;
@@ -85,9 +85,9 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   padding-bottom: 100px;
 }
 
-.signup-page {
+/* .signup-page {
   background: linear-gradient(180deg, #FFFFFF 70.5%, #FB86A4 100%);
-}
+} */
 
 .login-page h1, .signup-page h1 {
   color: #582F72;
