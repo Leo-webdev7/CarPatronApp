@@ -21,6 +21,7 @@ export const ADDUSER = gql`
             _id
             username
             email
+            phonenumber
         }
     }
   }
