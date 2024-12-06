@@ -10,7 +10,7 @@ import type { User } from '../models/User';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '' });
+  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '', vehicles: [] });
   const [login] = useMutation(LOGIN);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -32,7 +32,7 @@ const LoginForm = () => {
 
     try {
       const {data} = await login({
-        variables: {username: userFormData.username, email: userFormData.email, password: userFormData.password}
+        variables: {username: userFormData.username, password: userFormData.password}
       });
 
       if (data) {
@@ -51,11 +51,12 @@ const LoginForm = () => {
       email: '',
       password: '',
       phonenumber: '',
+      vehicles: [],
     });
   };
 
   return (
-    <div className="login-wrap">
+    <div className="login-wrap box">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
@@ -71,7 +72,7 @@ const LoginForm = () => {
             required
           />
         </div>
-        <div className='email-input'>
+        {/* <div className='email-input'>
           <label htmlFor='email'>Email</label>
           <input
             type='text'
@@ -81,7 +82,7 @@ const LoginForm = () => {
             value={userFormData.email || ''}
             required
           />
-        </div>
+        </div> */}
         <div className='password-input'>
           <label htmlFor='password'>Password</label>
           <input
@@ -94,7 +95,7 @@ const LoginForm = () => {
           />
         </div>
         <button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.username && userFormData.password)}
           type='submit'
           className='submit-button'>
           Submit
