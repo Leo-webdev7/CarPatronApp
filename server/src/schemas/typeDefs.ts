@@ -26,7 +26,7 @@ me: User
 }
 
 type Mutation {
-login(email: String!, password: String!): Auth
+login(username: String!, password: String!): Auth
 addUser(input: UserInput!): Auth
 }
 

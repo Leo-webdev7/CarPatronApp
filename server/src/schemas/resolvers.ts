@@ -32,8 +32,8 @@ const resolvers = {
         },
     },
     Mutation: {
-        login: async (_parent: any, {email, password}: {email: string, password: string}) => {
-            const user = await User.findOne({email});
+        login: async (_parent: any, {username, password}: {username: string, password: string}) => {
+            const user = await User.findOne({username});
             if (!user) {
                 throw new AuthenticationError('Cound not authenticate user');
             }

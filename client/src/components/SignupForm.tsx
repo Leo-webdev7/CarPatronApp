@@ -10,7 +10,7 @@ import type { User } from '../models/User';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '' });
+  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '', vehicles: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -50,11 +50,12 @@ const SignupForm = () => {
       email: '',
       password: '',
       phonenumber: '',
+      vehicles: [],
     });
   };
 
   return (
-    <div className='signup-wrap'>
+    <div className='signup-wrap box'>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
