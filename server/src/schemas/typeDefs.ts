@@ -1,20 +1,25 @@
 const typeDefs = `
-  type Tech {
+  type User {
     _id: ID!
+    email: String!
+    password: String!
+    vehicles: [Vehicle]
+  }
+
+  type Vehicle {
+    vin: String!
+    make: String!
+    model: String!
+    year: String!
+    services: [Service]
+  }
+
+  type Service {
     name: String!
-  }
-
-  type Matchup {
-    _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
-  }
-
-  type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    date_performed: String
+    mileage_performed: Int
+    cost: Float
+    is_overdue: Boolean
   }
 
   type Mutation {
