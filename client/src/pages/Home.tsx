@@ -5,7 +5,7 @@ import Header from '../components/Header';
 // import Nav from "../components/Nav"
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 // import Nav from "../components/Nav";
 
 
@@ -42,8 +42,8 @@ function HomePage () {
             <h2>
                 We are happy you are here!
             </h2>
-            <Nav />
-            <Footer />
+            {/* <Nav />
+            <Footer /> */}
         </div>
     )
 }

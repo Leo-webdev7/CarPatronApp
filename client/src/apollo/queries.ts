@@ -5,7 +5,29 @@ export const GET_ME = gql`
     me {
         _id
         username
-        email       
+        email
+        phonenumber
+        # vehicles {
+        #   _id
+        #   model
+        # }
+    }
+  }
+`;
+
+export const GET_VEHICLE = gql`
+  query vehicle {
+    vehicle {
+        _id
+        make
+        model
+        year
+        vin
+        mileage
+        # vehicles {
+        #   _id
+        #   model
+        # }
     }
   }
 `;
