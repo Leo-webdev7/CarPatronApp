@@ -22,13 +22,6 @@ export const ADDUSER = gql`
             username
             email
             phonenumber
-            # vehicles {
-            #   make
-            #   model
-            #   year
-            #   vin
-            #   mileage
-            # }
         }
     }
   }
@@ -37,17 +30,27 @@ export const ADDUSER = gql`
 export const ADD_VEHICLE = gql`
   mutation addVehicle($input: VehicleInput!) {
     addVehicle(input: $input) {
-          _id
-          username
-          email
-          phonenumber
-          vehicles {
-              make
-              model
-              year
-              vin
-              mileage
-            }
+        vehicles {
+            make
+            model
+            year
+            vin
+            mileage
+          }
+      }
+    }
+`;
+
+export const ADD_SERVICE = gql`
+  mutation addService($input: ServiceInput!) {
+    addService(input: $input) {
+          services {
+            name
+            date
+            mileage_performed
+            cost
+            is_outdated
+          }
       }
     }
 `;
