@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
 // import Home from './pages/Home';
-// import AddVehicle from './pages/AddVehicle'
+import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
@@ -31,10 +31,10 @@ const router = createBrowserRouter([
       //   path: '/Home',
       //   element: <Home />
       // },
-      // {
-      //   path: '/AddVehicle',
-      //   element: <AddVehicle/>
-      // },
+      {
+        path: '/AddVehicle',
+        element: <AddVehicle/>
+      },
       {
         path: '/ProfilePage',
         element: <ProfilePage/>
