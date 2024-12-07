@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-// import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 // import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
@@ -19,26 +19,26 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <ErrorPage />,
     children: [
-      {
+     /*  {
         index: true,
         element: <LoginPage/>
-      },
-      {
+      }, */
+      /* {
         path: '/SignupPage',
         element: <SignupPage/>
-      },
-      // {
-      //   path: '/Home',
-      //   element: <Home />
-      // },
+      }, */
+       {
+         path: '/HomePage',
+         element: <HomePage />
+       },
       // {
       //   path: '/AddVehicle',
       //   element: <AddVehicle/>
       // },
-      {
+      /* {
         path: '/ProfilePage',
         element: <ProfilePage/>
-      },
+      }, */
       // {
       //   path: '/Reminders',
       //   element: <Reminders/>

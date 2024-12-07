@@ -796,3 +796,102 @@ input {
 .validation-message {
   color: red;
 }
+
+/* !!!!!!!!!!!!!!!!!!!!!CAR PATRON SETTINGS STARTS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+/* header small */
+
+.logoSmall {
+  width:100px;
+  height: 100px;
+}
+
+.headerSmall {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100px;
+}
+
+.backButton {
+  width: 35px;
+  margin-left: 800px;
+  margin-top: 30px;
+}
+
+/* Homepage menu */
+
+.mainMenu {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+.icon-grid {
+      width: 30%;
+      height: 50%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+.menuIcon {
+  margin: 5px;
+      width: 50px;
+      height: 50px;
+      background-color: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+.menuIcon:hover {
+      background-color: none;
+    }
+
+.menuButton {
+      height: 150px;
+      width: 100px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      background-color: none;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+.menuButton:hover {
+      background-color: #8898aa;
+      transform: scale(1.05);
+    }
+
+.menuButton:active {
+      transform: scale(0.95);
+    }
+
+.menuButtonText {
+  margin-top: 20px;
+  font-size: 15px;
+}
