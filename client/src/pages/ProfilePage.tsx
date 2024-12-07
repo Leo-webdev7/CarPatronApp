@@ -17,12 +17,6 @@ const ProfilePage = () => {
       <div className="user-profile">
         <img src="../src/assets/user-profile.png" alt="profile logo" className="user-profile-img"/>
         <div className='profile-box box'>
-          {/* <ul>
-            <li><strong>Username:</strong> Test Name</li>
-            <li><strong>Email:</strong> testemail@email.com</li>
-            <li><strong>Vehicle Type:</strong> Chevy Cobalt</li>
-            <li><strong>Phone Number:</strong> 123-456-7890</li>
-          </ul> */}
           <ul>
             <li><strong>Username:</strong>  {profile.username}</li>
             <li><strong>Email:</strong>  {profile.email}</li>
