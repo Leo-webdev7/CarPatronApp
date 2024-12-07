@@ -1,5 +1,5 @@
-import Tech, { ITech } from '../models/Tech.js';
-import Matchup, { IMatchup } from '../models/Matchup.js';
+import Tech, { ITech } from '../models/Vehicle.js';
+import Matchup, { IMatchup } from '../models/User.js';
 
 const resolvers = {
   Query: {
