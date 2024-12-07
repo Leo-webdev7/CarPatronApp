@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-// import Home from './pages/Home';
-import AddVehicle from './pages/AddVehicle'
+import HomePage from './pages/HomePage';
+// import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
@@ -19,26 +19,30 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <ErrorPage />,
     children: [
-      {
+     /*  {
         index: true,
         element: <LoginPage/>
-      },
-      {
+      }, */
+      /* {
         path: '/SignupPage',
         element: <SignupPage/>
-      },
+      }, */
+       {
+         path: '/HomePage',
+         element: <HomePage />
+       },
       // {
       //   path: '/Home',
       //   element: <Home />
       // },
-      {
-        path: '/AddVehicle',
-        element: <AddVehicle/>
-      },
+      // {
+      //   path: '/AddVehicle',
+      //   element: <AddVehicle/>
+      // },
       {
         path: '/ProfilePage',
         element: <ProfilePage/>
-      },
+      }, */
       // {
       //   path: '/Reminders',
       //   element: <Reminders/>
