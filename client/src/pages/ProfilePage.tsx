@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 // import { useParams } from 'react-router-dom';
 import { GET_ME } from '../apollo/queries';
-import Header from '../components/Header';
+import HeaderSmall from '../components/HeaderSmall';
 
 const ProfilePage = () => {
   // const { profileId } = useParams();
@@ -13,7 +13,7 @@ const ProfilePage = () => {
   }
   return (
     <div>
-      <Header />
+      <HeaderSmall />
       <div className="user-profile">
         <img src="../src/assets/user-profile.png" alt="profile logo" className="user-profile-img"/>
         <div className='profile-box box'>
