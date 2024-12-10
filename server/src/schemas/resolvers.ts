@@ -65,6 +65,35 @@ const resolvers = {
                 throw new Error("Failed to create user");
             }
         },
+
+        addVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        },
+        
+        // ARGS SHOULD BE CHANGED??
+        // updateVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // deleteVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // addService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+            
+        // },
+
+        // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // deleteService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // setReminder: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+            
+        // },
     },
 }
 
