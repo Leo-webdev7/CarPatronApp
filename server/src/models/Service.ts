@@ -5,6 +5,7 @@ export interface IService extends Document {
   date_performed: Date,
   mileage_performed: number,
   cost: number,
+  description: string,
   is_overdue: boolean
 }
 
@@ -23,6 +24,10 @@ const ServiceSchema = new Schema<IService>({
     },
     cost: {
         type: Number,
+        required: false
+    },
+    description: {
+        type: String,
         required: false
     },
     is_overdue: {
