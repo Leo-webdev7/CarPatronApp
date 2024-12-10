@@ -1,8 +1,6 @@
-import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
+import { Types, Schema, model, type Document } from 'mongoose';
 import { IVehicle, VehicleSchema } from './Vehicle';
 import bcrypt from 'bcrypt';
-
-// import schema from Book.js
 
 export interface UserDocument extends Document {
   id: string;
@@ -36,10 +34,10 @@ const userSchema = new Schema<UserDocument>(
       required: true,
       unique: false,
     },
-    vehicles: {
-      type: [VehicleSchema],
-      default: [],
-    }
+      vehicles: {
+    type: [VehicleSchema],
+    default: [],
+  },
   },
   // set this to use virtual below
   {

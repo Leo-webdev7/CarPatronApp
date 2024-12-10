@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
-// import { Form, Alert } from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADDUSER } from '../apollo/mutations';
 // import { createUser } from '../utils/API';
@@ -8,10 +8,10 @@ import Auth from '../utils/auth';
 import type { User } from '../models/User';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
-const SignupForm = () => {
+const SignUpForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: ''
-    // , vehicles: [] 
+    , vehicles: [] 
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -52,7 +52,7 @@ const SignupForm = () => {
       email: '',
       password: '',
       phonenumber: '',
-      // vehicles: [],
+      vehicles: [],
     });
   };
 
@@ -123,4 +123,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default SignUpForm;
