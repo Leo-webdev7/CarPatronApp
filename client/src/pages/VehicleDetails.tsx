@@ -25,7 +25,7 @@ const VehicleDetails = () => {
             ) : (
               <span>
                 You have no saved vehicles!{' '}
-                <a href="/add-vehicle">Add a Vehicle</a>
+                <a href="/AddVehicle">Add a Vehicle</a>
               </span>
             )}
 
