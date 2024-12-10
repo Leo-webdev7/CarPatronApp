@@ -4,7 +4,7 @@ import { IService, ServiceSchema } from './Service';
 export interface IVehicle extends Document {
   vin: string;
   make: string;
-  model: string;
+  car_model: string;
   year: string;
   services: Types.DocumentArray<IService>;
 

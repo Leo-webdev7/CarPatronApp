@@ -8,7 +8,6 @@ interface User {
   phonenumber:string;
 }
 
-
 interface AddUserArgs {
   input:{
     username: string;
