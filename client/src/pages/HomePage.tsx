@@ -1,6 +1,4 @@
 import '../App.css';
-import HeaderSmall from '../components/HeaderSmall';
-// import logo from '../assets/logo/car-patron-logo.png';
 import profile from '../assets/icons/profile-circle.svg';
 import clock from '../assets/icons/clock-alarm.svg';
 import Header from '../components/Header';
