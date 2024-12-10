@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { ADD_SERVICE } from '../apollo/mutations';
+import { ADD_EXPENSE } from '../apollo/mutations';
 import Auth from '../utils/auth';
 import type { Service } from '../models/Service';
 
@@ -14,7 +14,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addService] = useMutation(ADD_SERVICE);
+  const [addService] = useMutation(ADD_EXPENSE);
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setServiceFormData({ ...serviceFormData, [name]: value });
