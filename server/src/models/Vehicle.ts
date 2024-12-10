@@ -1,4 +1,4 @@
-import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
+import { Types, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service';
 
 export interface IVehicle extends Document {
@@ -27,7 +27,7 @@ const VehicleSchema = new Schema<IVehicle>({
     type: String,
     required: true,
   },
-  model: {
+  car_model: {
     type: String,
     required: true,
   },
@@ -37,7 +37,7 @@ const VehicleSchema = new Schema<IVehicle>({
   },
 });
 
-const Vehicle = model<IVehicle>('Vehicle', VehicleSchema);
+const Vehicle = model('Vehicle', VehicleSchema);
 
 export { VehicleSchema }
 export default Vehicle;
