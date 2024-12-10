@@ -1,6 +1,6 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
-import logo from '../assets/logo/car-patron-logo.png';
+// import logo from '../assets/logo/car-patron-logo.png';
 import profile from '../assets/icons/profile-circle.svg';
 import clock from '../assets/icons/clock-alarm.svg';
 import Header from '../components/Header';
@@ -11,9 +11,9 @@ import money from '../assets/icons/money.svg';
 // import Footer from "../components/Footer";
 //import Nav2 from "../components/Nav2"
 // import Nav from "../components/Nav"
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Auth from '../utils/auth';
+// import { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import Auth from '../utils/auth';
 // import Nav from "../components/Nav";
 
 
