@@ -1,17 +1,12 @@
-import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
+import { Types, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service';
 
 export interface IVehicle extends Document {
   vin: string,
   make: string,
-  model: string,
+  car_model: string,
   year: string,
   services: Types.DocumentArray<IService>
-
-  // We need the following fields to fully implement the Document interface
-  _id: ObjectId; // Explicitly include _id
-  createdAt?: Date; // Include createdAt if timestamps are enabled
-  updatedAt?: Date; // Include updatedAt if timestamps are enabled
 }
 
 const VehicleSchema = new Schema<IVehicle>({
@@ -27,7 +22,7 @@ const VehicleSchema = new Schema<IVehicle>({
     type: String,
     required: true,
   },
-  model: {
+  car_model: {
     type: String,
     required: true,
   },
@@ -37,7 +32,7 @@ const VehicleSchema = new Schema<IVehicle>({
   },
 });
 
-const Vehicle = model<IVehicle>('Vehicle', VehicleSchema);
+const Vehicle = model('Vehicle', VehicleSchema);
 
 export { VehicleSchema }
 export default Vehicle;
