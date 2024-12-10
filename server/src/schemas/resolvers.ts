@@ -8,6 +8,42 @@ interface User {
   phonenumber:string;
 }
 
+interface Vehicle {
+    vin: string;
+    year: string;
+    make: string;
+    model: string;
+    services: Service[];
+}
+
+interface AddVehicleArgs {
+    input: {
+        vin: string;
+        year: string;
+        make: string;
+        model: string;
+    }
+}
+
+interface Service {
+    name: string;
+    date_performed: string;
+    mileage_performed: number;
+    cost: number;
+    description: string;
+    is_overdue: boolean;
+}
+
+interface AddServiceArgs {
+    input: {
+        name: string;
+        date_performed: string;
+        mileage_performed: number;
+        cost: number;
+        description: string;
+        is_overdue: boolean;
+    }
+}
 
 interface AddUserArgs {
   input:{
@@ -66,11 +102,21 @@ const resolvers = {
             }
         },
 
-        addVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+        addVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, year, make, model } = input;
+                const newVehicle = { vin, year, make, model };
 
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { vehicles: newVehicle } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to add vehicle");
         },
-        
-        // ARGS SHOULD BE CHANGED??
+
+        // ARGS SHOULD BE CHANGED
         // updateVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
 
         // },
