@@ -1,7 +1,6 @@
-import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
+import { Types, Schema, model, type Document } from 'mongoose';
 import { IVehicle, VehicleSchema } from './Vehicle';
 import bcrypt from 'bcrypt';
-import { IVehicle, VehicleSchema } from './Vehicle';
 
 export interface UserDocument extends Document {
   id: string;

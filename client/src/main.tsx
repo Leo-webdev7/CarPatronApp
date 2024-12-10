@@ -3,13 +3,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
 import HomePage from './pages/HomePage';
-// import AddVehicle from './pages/AddVehicle'
+import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 // import Reminders from './pages/Reminders';
 // import ExpenseRecords from './pages/ExpenseRecords';
-import SignupPage from './pages/SignUpPage';
+import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
 // import VehicleExpenses from './pages/VehicleExpenses';
 
@@ -24,21 +24,17 @@ const router = createBrowserRouter([
         element: <LoginPage/>
       },
        {
-        path: '/SignupPage',
-        element: <SignupPage/>
+        path: '/SignUpPage',
+        element: <SignUpPage/>
       },
        {
          path: '/HomePage',
          element: <HomePage />
        },
-      // {
-      //   path: '/Home',
-      //   element: <Home />
-      // },
-      // {
-      //   path: '/AddVehicle',
-      //   element: <AddVehicle/>
-      // },
+      {
+        path: '/AddVehicle',
+        element: <AddVehicle/>
+      },
       {
         path: '/ProfilePage',
         element: <ProfilePage/>

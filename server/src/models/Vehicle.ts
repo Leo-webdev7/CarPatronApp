@@ -2,11 +2,11 @@ import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service';
 
 export interface IVehicle extends Document {
-  vin: string,
-  make: string,
-  model: string,
-  year: string,
-  services: Types.DocumentArray<IService>
+  vin: string;
+  make: string;
+  model: string;
+  year: string;
+  services: Types.DocumentArray<IService>;
 
   // We need the following fields to fully implement the Document interface
   _id: ObjectId; // Explicitly include _id
