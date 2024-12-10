@@ -10,7 +10,9 @@ import type { User } from '../models/User';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '', vehicles: [] });
+  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: ''
+    // , vehicles: [] 
+  });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -50,7 +52,7 @@ const SignupForm = () => {
       email: '',
       password: '',
       phonenumber: '',
-      vehicles: [],
+      // vehicles: [],
     });
   };
 

@@ -1,63 +1,33 @@
-// import { useQuery, useMutation } from '@apollo/client';
-// import { useParams, Link } from 'react-router-dom';
-// import { CREATE_VOTE } from '../apollo/mutations';
-// import { QUERY_MATCHUPS } from '../apollo/queries';
+import { useQuery } from '@apollo/client';
+// import { useParams } from 'react-router-dom';
+import { GET_VEHICLE } from '../apollo/queries';
+import HeaderSmall from '../components/HeaderSmall';
 
 const VehicleDetails = () => {
-//   let { id } = useParams();
+  // const { profileId } = useParams();
+  const { loading, data } = useQuery(GET_VEHICLE);
 
-//   const { loading, data } = useQuery(QUERY_MATCHUPS, {
-//     variables: { _id: id },
-//   });
-
-//   const matchup = data?.matchups || [];
-
-//   const [createVote, { error }] = useMutation(CREATE_VOTE);
-
-//   const handleVote = async (techNum: number) => {
-//     try {
-//       await createVote({
-//         variables: { _id: id, techNum: techNum },
-//       });
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
-//   return (
-//     <div className="card bg-white card-rounded w-50">
-//       <div className="card-header bg-dark text-center">
-//         <h1>Here is the matchup!</h1>
-//       </div>
-//       {loading ? (
-//         <div>Loading...</div>
-//       ) : (
-//         <div className="card-body text-center mt-3">
-//           <h2>
-//             {matchup[0].tech1} vs. {matchup[0].tech2}
-//           </h2>
-//           <h3>
-//             {matchup[0].tech1_votes} : {matchup[0].tech2_votes}
-//           </h3>
-//           <button className="btn btn-info" onClick={() => handleVote(1)}>
-//             Vote for {matchup[0].tech1}
-//           </button>{' '}
-//           <button className="btn btn-info" onClick={() => handleVote(2)}>
-//             Vote for {matchup[0].tech2}
-//           </button>
-//           <div className="card-footer text-center m-3">
-//             <br></br>
-//             <Link to="/">
-//               <button className="btn btn-lg btn-danger">
-//                 View all matchups
-//               </button>
-//             </Link>
-//           </div>
-//         </div>
-//       )}
-//       {error && <div>Something went wrong...</div>}
-//     </div>
-//   );
+  const vehicle = data?.vehicle || {};
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      <HeaderSmall />
+      <div className="vehicle-details">
+        <img src="../src/assets/vehicle-profile.png" alt="profile logo" className="vehicle-details-img"/>
+        <div className='profile-box box'>
+          <ul>
+            <li><strong>Make:</strong>  {vehicle.make}</li>
+            <li><strong>Model:</strong>  {vehicle.model}</li>
+            <li><strong>Year:</strong> {vehicle.year}</li>
+            <li><strong>VIN:</strong> {vehicle.vin}</li>
+            <li><strong>Mileage:</strong> {vehicle.mileage}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default VehicleDetails;
