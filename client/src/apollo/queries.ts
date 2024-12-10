@@ -7,6 +7,14 @@ export const GET_ME = gql`
         username
         email
         phonenumber
+        vehicle {
+          _id
+          make
+          model
+          year
+          vin
+          mileage
+      }
     }
   }
 `;

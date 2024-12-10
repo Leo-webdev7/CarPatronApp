@@ -11,7 +11,7 @@ import type { User } from '../models/User';
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: ''
-    // , vehicles: [] 
+    , vehicles: [] 
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -52,7 +52,7 @@ const SignupForm = () => {
       email: '',
       password: '',
       phonenumber: '',
-      // vehicles: [],
+      vehicles: [],
     });
   };
 
