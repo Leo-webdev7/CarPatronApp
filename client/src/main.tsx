@@ -9,7 +9,6 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 // import Reminders from './pages/Reminders';
 // import ServiceRecords from './pages/ServiceRecords';
-// import ExpenseRecords from './pages/ExpenseRecords';
 import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
 // import VehicleExpenses from './pages/VehicleExpenses';
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
       // {
       //   path: '/Reminders',
       //   element: <Reminders/>
-      // },
-      // {
-      //   path: '/ExpenseRecords',
-      //   element: <ExpenseRecords/>
       // },
       // {
       //   path: '/VehicleDetails',
