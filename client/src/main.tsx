@@ -8,6 +8,7 @@ import AddVehicle from './pages/AddVehicle'
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 // import Reminders from './pages/Reminders';
+// import ServiceRecords from './pages/ServiceRecords';
 // import ExpenseRecords from './pages/ExpenseRecords';
 import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';

@@ -17,23 +17,23 @@ export interface IVehicle extends Document {
 const VehicleSchema = new Schema<IVehicle>({
   vin: {
     type: String,
-    required: true,
+    required: true
   },
   year: {
     type: String,
-    required: true,
+    required: true
   },
   make: {
     type: String,
-    required: true,
+    required: true
   },
   car_model: {
     type: String,
-    required: true,
+    required: true
   },
   services: {
     type: [ServiceSchema],
-    default: [],
+    default: []
   },
 });
 
