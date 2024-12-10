@@ -198,12 +198,21 @@ p {
   display: block;
   margin: 0 auto 20px;
   text-align: center;
+  width: 5%;
 }
 
 .profile-box {
   display: flex;
   justify-content: left;
   align-items: center;
+}
+
+.reminders-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
 }
 
 .profile-box ul {
@@ -895,4 +904,89 @@ input {
 .menuButtonText {
   margin-top: 20px;
   font-size: 15px;
+}
+
+
+/* General container styling */
+.income-source {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Header row styling */
+.table-columns th {
+    background-color: #3870c9;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Table cell styling */
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Alternating row colors */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Specific column styling */
+#date {
+    color: #333;
+    font-weight: bold;
+}
+
+#cost {
+    color: #007bff;
+}
+
+#mileage {
+    color: #28a745;
+    font-weight: bold;
+}
+
+#title {
+    color: #6c757d;
+}
+
+#description {
+  color: #7f3785;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .income-source {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
 }
