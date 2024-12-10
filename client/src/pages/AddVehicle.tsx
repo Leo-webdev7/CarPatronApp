@@ -1,13 +1,13 @@
 // pages/AddVehicle.js
 import '../App.css'; 
 import VehicleForm from '../components/AddVehicleForm.js';
-import Header from '../components/Header';
+import HeaderSmall from '../components/HeaderSmall';
 
 function AddVehicle() {
 return (
   <>
     <div className="add-vehicle-page">
-      <Header />
+      <HeaderSmall />
       <VehicleForm/>
     </div>
   </> 
