@@ -2,59 +2,63 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-import Home from './pages/Home';
-import AddVehicle from './pages/AddVehicle'
-import ErrorPage from './pages/Errorpage';
+import HomePage from './pages/HomePage';
+// import AddVehicle from './pages/AddVehicle'
+// import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
-import Reminders from './pages/Reminders';
-import ServiceRecords from './pages/ServiceRecords';
+// import Reminders from './pages/Reminders';
+// import ServiceRecords from './pages/ServiceRecords';
 import SignupPage from './pages/SignUpPage';
-import VehicleDetails from './pages/VehicleDetails';
-import VehicleExpenses from './pages/VehicleExpenses';
+// import VehicleDetails from './pages/VehicleDetails';
+// import VehicleExpenses from './pages/VehicleExpenses';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <SignupPage/>
-      },
-      {
+     /*  {
         index: true,
         element: <LoginPage/>
-      },
+      }, */
+      /* {
+        path: '/SignupPage',
+        element: <SignupPage/>
+      }, */
+       {
+         path: '/HomePage',
+         element: <HomePage />
+       },
+      // {
+      //   path: '/Home',
+      //   element: <Home />
+      // },
+      // {
+      //   path: '/AddVehicle',
+      //   element: <AddVehicle/>
+      // },
       {
-        index: true,
-        element: <Home />
-      },
-      {
-        index: true,
-        element: <AddVehicle/>
-      },
-      {
-        index: true,
+        path: '/ProfilePage',
         element: <ProfilePage/>
-      },
-      {
-        index: true,
-        element: <Reminders/>
-      },
-      {
-        index: true,
-        element: <ServiceRecords/>
-      },
-      {
-        index: true,
-        element: <VehicleDetails/>
-      },
-      {
-        index: true,
-        element: <VehicleExpenses/>
-      }, 
+      }, */
+      // {
+      //   path: '/Reminders',
+      //   element: <Reminders/>
+      // },
+      // {
+      //   path: '/ServiceRecords',
+      //   element: <ServiceRecords/>
+      // },
+      // {
+      //   path: '/VehicleDetails',
+      //   element: <VehicleDetails/>
+      // },
+      // {
+      //   path: '/VehicleExpenses',
+      //   element: <VehicleExpenses/>
+      // }, 
     ],
   },
 ]);

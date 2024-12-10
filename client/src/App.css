@@ -22,9 +22,9 @@ html, body,
   padding: 0;
 }
 
-.App {
+/* .App {
   background: linear-gradient(357.09deg, #92d9c6 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%);
-}
+} */
 
 body {
   margin: 0 auto;
@@ -43,7 +43,7 @@ body {
   margin: 0 auto;
 }
 
-nav.updated-nav-tk {
+/* nav.updated-nav-tk {
   background: #fff;
   max-width: 400px;
   width: 100%;
@@ -72,12 +72,12 @@ nav.updated-nav-tk a {
 nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   color: #681e67;
   background: #abdad9;
-}
+} */
 
 /* -       Login Page & Signup Page-------- */
 
 .login-page, .signup-page {
-  background: linear-gradient(357.09deg, #DD64D8 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%);
+  /* background: linear-gradient(357.09deg, #DD64D8 -3.04%, #FFFFFF 30.85%, #FFFFFF 75.09%); */
   max-width: 100%;
   height: 100%;
   display: block;
@@ -85,34 +85,31 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   padding-bottom: 100px;
 }
 
-.signup-page {
+/* .signup-page {
   background: linear-gradient(180deg, #FFFFFF 70.5%, #FB86A4 100%);
-}
+} */
 
 .login-page h1, .signup-page h1 {
-  color: #582F72;
+  color: #84BFF7;
   margin-bottom: .5em;
     font-size: 40px;
     font-weight: 500;
 }
 
-.login-wrap, .signup-wrap {
+.box {
   max-width: 420px;
-  background: #CD305D;
+  background: #E7E5E5;
   padding: 20px;
-  border-radius: 25px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 20px;
+  border: 2px solid #3B3535;
 }
-.signup-wrap {
- background: #4F86B6;
-}
+
 .login-wrap label, .signup-wrap label {
   display: none;
 }
 
 .login-wrap input, .signup-wrap input {
-  border-radius: 10px;
   color: #000;
   width: 100%;
   margin-bottom: 1em;
@@ -122,21 +119,14 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
 .login-wrap button[type=submit], .signup-wrap button[type=submit] {
   width: 125px;
   text-transform: uppercase;
-  color: #000;
+  color: #fff;
   font-weight: 600;
   font-size: 20px;
+  background: #84BFF7;
   margin-bottom: 1.5em;
   padding: 10px;
-  border-radius: 20px;
   border: 0px solid transparent;
   cursor: pointer;
-}
-
-.login-error {
-  margin-top: 14px;
-  color: red;
-  background: black;
-  font-size: 0.9em;
 }
 
 /*-------  forgot passowrd & sign up links */
@@ -148,117 +138,7 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   font-size: 20px;
   font-weight: 600;
 }
-.signup-wrap {
- background: #4F86B6;
-}
 
-/* SignUpPage.css
-.signup-page {
-  max-width: 400px;
-  margin: auto;
-  padding: 50px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  background-color: #4F86B6;
-}
-
-.signup-page h2 {
-  text-align: center;
-}
-
-.signup-page div {
-  margin-bottom: 15px;
-}
-
-.signup-page label {
-  display: block;
-  margin-bottom: 5px;
-  color: #ffffff;
-
-}
-
-.signup-page input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  background: #000000;
-
-}
-  
-
-.signup-page .error {
-  color: red;
-  font-size: 0.9em;
-}
-.signup-page button{
-  background-color: #00A911;
-align-content: center;
-}
-button:hover {
-  background-color: #0056b3; 
-}
-.signup-page .button-container{
- display: flex;
- justify-content: center;
-
-}
- */
-/*LoginPage.css 
-.login-page {
-  max-width: 400px;
-  margin: auto;
-  padding: 50px;
-  border: 2px solid #533174;
-  border-radius: 30px;
-  background-color: #CD305D;
-}
-
-.login-page h2 {
-  text-align: center;
-}
-
-.login-page div {
-  margin-bottom: 15px;
-}
-
-.login-page label {
-  display: block;
-  margin-bottom: 5px;
-  color: #ffffff;
-
-}
-
-.login-page input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  background: rgb(255, 255, 255);
-}
-
-.login-page .error {
-  color: red;
-  font-size: 0.9em;
-}
-.login-page button{
-  background-color: #00A911;
-align-content: center;
-}
-
-button:hover {
-  background-color: #0056b3; 
-}
-.login-page .button-container{
-  display: flex;
-  justify-content: center;
-  
- }
-  .logo{
-   max-width: 70%;
-  
-   display: block;
-   margin-bottom: 20px;
- }
- */
 
 /* -       Welcome Page-------- */
 
@@ -269,60 +149,18 @@ button:hover {
 .welcome-wrap h1 {
    font-size: 3em;
    font-weight: 900;
-   color: #6A1D67;
+   color: #84BFF7;
    text-align:center;
 }
 
 .welcome-wrap h2 {
    font-size: 64px;
    font-weight: 900;
-   color: #CF365A;
+   color: #84BFF7;
    font-size: 20px;
    font-weight: 400;
    text-align:center;
 }
-/*
-.button-wrap {
-  width: 380px;
-  padding: 20px;
-  border-radius: 25px;
-  display: block;
-  font-size: 36px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
-.button-wrap .emoji {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.button-wrap.journal {
-  background: #82C8C6AB;
-}
-
-.button-wrap.journal a {
-  color: #CE335B;
-}
-
-.button-wrap.calendar {
-  background: #ECB537B5;
-}
-
-.button-wrap.calendar a {
-  color: #5C00AA;
-}
-
-.button-wrap.healthy-tips {
-  background: #9C0A6A8A;
-}
-
-.button-wrap.healthy-tips a {
-  color: #000;
-}
-*/
 /* Header styles */
 header {
   text-align: center;
@@ -339,18 +177,12 @@ header .logoutButton {
   margin: 10px;
 }
 
-/* header img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-} */
-
 h1 {
   font-family: Inter;
   font-size: 64px;
   font-weight: 500;
   line-height: 77.45px;
-  color: #6A1D67;
+  color: #84BFF7;
 }
 
 p {
@@ -360,13 +192,34 @@ p {
   line-height: 24.2px;
 }
 
+/* -       Profile Page -------- */
+
+.user-profile .user-profile-img {
+  display: block;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.profile-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.profile-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2em;
+}
+
 /* -       Footer Help Line -------- */
 footer {
   display: flex;
-  background-color: #D9D9D9;
+  /* background-color: #D9D9D9; */
   text-align: center;
   padding: 10px;
-  border-top: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
   /* position: fixed; */
   /* bottom: 0; */
   width: 100%;
@@ -943,4 +796,103 @@ input {
 
 .validation-message {
   color: red;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!CAR PATRON SETTINGS STARTS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+/* header small */
+
+.logoSmall {
+  width:100px;
+  height: 100px;
+}
+
+.headerSmall {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100px;
+}
+
+.backButton {
+  width: 35px;
+  margin-left: 800px;
+  margin-top: 30px;
+}
+
+/* Homepage menu */
+
+.mainMenu {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+.icon-grid {
+      width: 30%;
+      height: 50%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+.menuIcon {
+  margin: 5px;
+      width: 50px;
+      height: 50px;
+      background-color: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+.menuIcon:hover {
+      background-color: none;
+    }
+
+.menuButton {
+      height: 150px;
+      width: 100px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      background-color: none;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+.menuButton:hover {
+      background-color: #8898aa;
+      transform: scale(1.05);
+    }
+
+.menuButton:active {
+      transform: scale(0.95);
+    }
+
+.menuButtonText {
+  margin-top: 20px;
+  font-size: 15px;
 }
