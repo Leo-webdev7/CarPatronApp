@@ -20,6 +20,13 @@ const typeDefs = `
     user: User
  }
 
+  type Service {
+    name: String!
+    date_performed: String
+    mileage_performed: Int
+    cost: Float
+    is_overdue: Boolean
+  }
 type Query {
 me: User
 }

@@ -1,4 +1,4 @@
-import User from './User.js';
-// import Matchup from './Matchup.js';
+import Tech from './Vehicle.js';
+import Matchup from './User.js';
 
 export default { User };

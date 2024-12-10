@@ -1,7 +1,6 @@
 import { Schema, model, type Document } from 'mongoose';
 import bcrypt from 'bcrypt';
-
-// import schema from Book.js
+import { IVehicle, VehicleSchema } from './Vehicle';
 
 export interface UserDocument extends Document {
   id: string;
@@ -9,6 +8,7 @@ export interface UserDocument extends Document {
   email: string;
   password: string;
   phonenumber: string;
+  vehicles: Types.DocumentArray<IVehicle>;
   isCorrectPassword(password: string): Promise<boolean>;
 }
 
@@ -34,6 +34,10 @@ const userSchema = new Schema<UserDocument>(
       required: true,
       unique: false,
     },
+      vehicles: {
+    type: [VehicleSchema],
+    default: [],
+  },
   },
   // set this to use virtual below
   {
