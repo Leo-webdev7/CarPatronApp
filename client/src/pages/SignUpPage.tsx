@@ -1,17 +1,17 @@
 // pages/SignupPage.js
 import '../App.css'; 
-import SignupForm from '../components/SignupForm.js';
+import SignUpForm from '../components/SignUpForm.js';
 import Header from '../components/Header';
 
-const SignupPage = () => {
+const SignUpPage = () => {
   return (
   <>
     <div className="signup-page">
       <Header />
-      <SignupForm/>
+      <SignUpForm/>
     </div>
   </> 
   );
 };
 
-export default SignupPage;
+export default SignUpPage;

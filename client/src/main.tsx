@@ -3,15 +3,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
 import HomePage from './pages/HomePage';
-// import AddVehicle from './pages/AddVehicle'
+import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 // import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
-// import Reminders from './pages/Reminders';
+import Reminders from './pages/Reminders';
 // import ServiceRecords from './pages/ServiceRecords';
 import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
-// import VehicleExpenses from './pages/VehicleExpenses';
+import VehicleExpenses from './pages/VehicleExpenses';
 
 const router = createBrowserRouter([
   {
@@ -19,11 +19,11 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <ErrorPage />,
     children: [
-     /*  {
+      {
         index: true,
         element: <LoginPage/>
-      }, */
-      {
+      },
+       {
         path: '/SignUpPage',
         element: <SignUpPage/>
       },
@@ -31,34 +31,26 @@ const router = createBrowserRouter([
          path: '/HomePage',
          element: <HomePage />
        },
-      // {
-      //   path: '/Home',
-      //   element: <Home />
-      // },
-      // {
-      //   path: '/AddVehicle',
-      //   element: <AddVehicle/>
-      // },
+      {
+        path: '/AddVehicle',
+        element: <AddVehicle/>
+      },
       {
         path: '/ProfilePage',
         element: <ProfilePage/>
-      },
+      }, 
       // {
       //   path: '/Reminders',
       //   element: <Reminders/>
       // },
       // {
-      //   path: '/ServiceRecords',
-      //   element: <ServiceRecords/>
-      // },
-      // {
       //   path: '/VehicleDetails',
       //   element: <VehicleDetails/>
       // },
-      // {
-      //   path: '/VehicleExpenses',
-      //   element: <VehicleExpenses/>
-      // }, 
+       {
+         path: '/VehicleExpenses',
+         element: <VehicleExpenses/>
+       }, 
     ],
   },
 ]);
