@@ -116,10 +116,22 @@ const resolvers = {
             throw new Error("Failed to add vehicle");
         },
 
-        // ARGS SHOULD BE CHANGED
-        // updateVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+        updateVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, year, make, model } = input;
 
-        // },
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id, 'vehicles.vin': vin },
+                    { $set: {  
+                        'vehicles.$.year': year,
+                        'vehicles.$.make': make,
+                        'vehicles.$.model': model
+                    } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to update vehicle");
+        },
 
         // deleteVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
 
