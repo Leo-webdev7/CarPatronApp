@@ -7,10 +7,6 @@ export const GET_ME = gql`
         username
         email
         phonenumber
-        # vehicles {
-        #   _id
-        #   model
-        # }
     }
   }
 `;
@@ -24,10 +20,19 @@ export const GET_VEHICLE = gql`
         year
         vin
         mileage
-        # vehicles {
-        #   _id
-        #   model
-        # }
+    }
+  }
+`;
+
+export const GET_SERVICE = gql`
+  query service {
+    service {
+        _id
+        make
+        model
+        year
+        vin
+        mileage
     }
   }
 `;

@@ -10,7 +10,9 @@ import type { User } from '../models/User';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const LoginForm = () => {
-  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: '', vehicles: [] });
+  const [userFormData, setUserFormData] = useState<User>({ username: '', email: '', password: '', phonenumber: ''
+    // , vehicles: [] 
+  });
   const [login] = useMutation(LOGIN);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -51,7 +53,7 @@ const LoginForm = () => {
       email: '',
       password: '',
       phonenumber: '',
-      vehicles: [],
+      // vehicles: [],
     });
   };
 
