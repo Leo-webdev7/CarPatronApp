@@ -41,9 +41,9 @@ export const ADD_VEHICLE = gql`
     }
 `;
 
-export const ADD_SERVICE = gql`
-  mutation addService($input: ServiceInput!) {
-    addService(input: $input) {
+export const ADD_EXPENSE = gql`
+  mutation addExpense($input: ServiceInput!) {
+    addExpense(input: $input) {
           services {
             name
             date
