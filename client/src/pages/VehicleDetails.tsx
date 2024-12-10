@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 // import { useParams } from 'react-router-dom';
 import { GET_VEHICLE } from '../apollo/queries';
-import Header from '../components/Header';
+import HeaderSmall from '../components/HeaderSmall';
 
 const VehicleDetails = () => {
   // const { profileId } = useParams();
@@ -13,7 +13,7 @@ const VehicleDetails = () => {
   }
   return (
     <div>
-      <Header />
+      <HeaderSmall />
       <div className="vehicle-details">
         <img src="../src/assets/vehicle-profile.png" alt="profile logo" className="vehicle-details-img"/>
         <div className='profile-box box'>
