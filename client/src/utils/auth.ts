@@ -42,7 +42,7 @@ class AuthService {
   login(idToken: string) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/ProfilePage');
+    window.location.assign('/HomePage');
   }
 
   logout() {

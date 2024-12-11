@@ -8,6 +8,43 @@ interface User {
   phonenumber:string;
 }
 
+interface Vehicle {
+    vin: string;
+    year: string;
+    make: string;
+    model: string;
+    services: Service[];
+}
+
+interface AddVehicleArgs {
+    input: {
+        vin: string;
+        year: string;
+        make: string;
+        model: string;
+    }
+}
+
+interface Service {
+    name: string;
+    date_performed: string;
+    mileage_performed: number;
+    cost: number;
+    description: string;
+    is_overdue: boolean;
+}
+
+interface AddServiceArgs {
+    input: {
+        name: string;
+        date_performed: string;
+        mileage_performed: number;
+        cost: number;
+        description: string;
+        is_overdue: boolean;
+    }
+}
+
 interface AddUserArgs {
   input:{
     username: string;
@@ -64,6 +101,57 @@ const resolvers = {
                 throw new Error("Failed to create user");
             }
         },
+
+        addVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, year, make, model } = input;
+                const newVehicle = { vin, year, make, model };
+
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { vehicles: newVehicle } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to add vehicle");
+        },
+
+        updateVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, year, make, model } = input;
+
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id, 'vehicles.vin': vin },
+                    { $set: {  
+                        'vehicles.$.year': year,
+                        'vehicles.$.make': make,
+                        'vehicles.$.model': model
+                    } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to update vehicle");
+        },
+
+        // deleteVehicle: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // addService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+            
+        // },
+
+        // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // deleteService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+
+        // },
+
+        // setReminder: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
+            
+        // },
     },
 }
 

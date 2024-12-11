@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-// import { useParams } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { GET_ME } from '../apollo/queries';
 import HeaderSmall from '../components/HeaderSmall';
 import type { User } from '../models/User';
@@ -18,11 +18,16 @@ const VehicleDetails = () => {
       <div className="vehicle-details">
         <img src="../src/assets/vehicle-profile.png" alt="profile logo" className="vehicle-details-img"/>
         <div className='profile-box box'>
-          {userData.vehicles.length
-            ? `Viewing ${userData.vehicles.length} saved ${
-                userData.vehicles.length === 1 ? 'vehicle' : 'vehicle'
+          {userData.vehicles.length ? (
+              `Viewing ${userData.vehicles.length} saved ${
+                userData.vehicles.length === 1 ? 'vehicle' : 'vehicles'
               }:`
-            : 'You have no saved vehicles! <a href="#">Add a Vehicle</a>'}
+            ) : (
+              <span>
+                You have no saved vehicles!{' '}
+                <a href="/AddVehicle">Add a Vehicle</a>
+              </span>
+            )}
 
           {userData.vehicles.map((vehicle:any) => {
             return (
