@@ -9,7 +9,6 @@ const seedDatabase = async (): Promise<void> => {
     await db();
     await cleanDB();
 
-    // The seeded users don't have hashed passwords, so auth doesn't work
     await User.insertMany(userSeeds);
 
     console.log(`Seeding completed successfully! ${userSeeds.length} user(s) inserted!`);
