@@ -5,7 +5,7 @@ const typeDefs = `
     email: String!
     password: String!
     phonenumber: String
-    vehicles: [Vehicle]!
+    vehicles: [Vehicle]
   }
 
   input UserInput {
@@ -13,6 +13,7 @@ const typeDefs = `
     email: String!
     password: String!
     phonenumber: String
+    vehicles: [VehicleInput]
   }
 
   type Vehicle {
@@ -20,6 +21,7 @@ const typeDefs = `
     make: String!
     car_model: String!
     year: String!
+    mileage: Int
     services: [Service]
   }
 
@@ -28,6 +30,7 @@ const typeDefs = `
     make: String!
     car_model: String!
     year: String!
+    services: [ServiceInput]
   }
 
   type Service {
@@ -55,13 +58,17 @@ const typeDefs = `
 
   type Query {
     me: User
+    getUser(username: String!): User
   }
 
   type Mutation {
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
+    addVehicle(input: VehicleInput!): User
   }
 
 `;
+
+
 
 export default typeDefs;

@@ -26,6 +26,8 @@ export const authenticateToken = ({ req }: any) => {
   } catch (err) {
     // If the token is invalid, log an error message
     console.log('Invalid token');
+    // Return a null user
+    return { user: null }
   }
 };
 
