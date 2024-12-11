@@ -1,6 +1,4 @@
 import '../App.css';
-import HeaderSmall from '../components/HeaderSmall';
-// import logo from '../assets/logo/car-patron-logo.png';
 import profile from '../assets/icons/profile-circle.svg';
 import clock from '../assets/icons/clock-alarm.svg';
 import Header from '../components/Header';
@@ -8,13 +6,7 @@ import vehicle from '../assets/icons/vehicle.svg';
 import service from '../assets/icons/service.svg';
 import vehicle1 from '../assets/icons/vehicle1.svg';
 import money from '../assets/icons/money.svg';
-// import Footer from "../components/Footer";
-//import Nav2 from "../components/Nav2"
-// import Nav from "../components/Nav"
-// import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import Auth from '../utils/auth';
-// import Nav from "../components/Nav";
+
 
 
 
@@ -41,8 +33,8 @@ function HomePage () {
                         <p className='menuButtonText'>Service Records</p> 
                     </div>
                     <div className='menuButton'>
-                        <div><a href=""><img src={vehicle1} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Vehicle</p> 
+                        <div><a href="/AddVehicle"><img src={vehicle1} alt="" className='menuIcon'/></a></div>
+                        <p className='menuButtonText'>Add Vehicle</p> 
                     </div>
                     <div className='menuButton'>
                         <div><a href="VehicleExpenses"><img src={money} alt="" className='menuIcon'/></a></div>

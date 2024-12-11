@@ -10,7 +10,7 @@ import ProfilePage from './pages/ProfilePage';
 import Reminders from './pages/Reminders';
 // import ServiceRecords from './pages/ServiceRecords';
 // import ExpenseRecords from './pages/ExpenseRecords';
-import SignUpPage from './pages/SignUpPage';
+// import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
 import VehicleExpenses from './pages/VehicleExpenses';
 
@@ -20,14 +20,14 @@ const router = createBrowserRouter([
     element: <App />,
     // errorElement: <ErrorPage />,
     children: [
-      {
+      /* {
         index: true,
         element: <LoginPage/>
-      },
-       {
+      }, */
+       /* {
         path: '/SignUpPage',
         element: <SignUpPage/>
-      },
+      }, */
        {
          path: '/HomePage',
          element: <HomePage />
@@ -40,18 +40,18 @@ const router = createBrowserRouter([
         path: '/ProfilePage',
         element: <ProfilePage/>
       }, 
-      // {
-      //   path: '/Reminders',
-      //   element: <Reminders/>
-      // },
+      {
+        path: '/Reminders',
+        element: <Reminders/>
+      },
       // {
       //   path: '/ExpenseRecords',
       //   element: <ExpenseRecords/>
       // },
-      // {
-      //   path: '/VehicleDetails',
-      //   element: <VehicleDetails/>
-      // },
+       /* {
+         path: '/VehicleDetails',
+         element: <VehicleDetails/>
+       }, */
        {
          path: '/VehicleExpenses',
          element: <VehicleExpenses/>
