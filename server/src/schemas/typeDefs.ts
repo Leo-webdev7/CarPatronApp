@@ -65,6 +65,7 @@ const typeDefs = `
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
     addVehicle(input: VehicleInput!): User
+    addService(vin: String!, input: ServiceInput!): User
   }
 
 `;
