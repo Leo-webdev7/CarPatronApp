@@ -7,8 +7,8 @@ import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
-// import Reminders from './pages/Reminders';
-// import ServiceRecords from './pages/ServiceRecords';
+import Reminders from './pages/Reminders';
+import ServiceRecords from './pages/ServiceRecords';
 import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
 import VehicleExpenses from './pages/VehicleExpenses';
@@ -39,17 +39,21 @@ const router = createBrowserRouter([
         path: '/ProfilePage',
         element: <ProfilePage/>
       }, 
-      // {
-      //   path: '/Reminders',
-      //   element: <Reminders/>
-      // },
-      // {
-      //   path: '/VehicleDetails',
-      //   element: <VehicleDetails/>
-      // },
+       {
+         path: '/Reminders',
+         element: <Reminders/>
+       },
+       /* {
+         path: '/VehicleDetails',
+         element: <VehicleDetails/>
+       }, */
        {
          path: '/VehicleExpenses',
          element: <VehicleExpenses/>
+       },
+       {
+         path: '/ServiceRecords',
+         element: <ServiceRecords/>
        }, 
     ],
   },
