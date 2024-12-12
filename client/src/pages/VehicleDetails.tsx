@@ -37,8 +37,8 @@ const VehicleDetails = () => {
             <select value={selectedValue} onChange={handleChange}>
               <option value="">Select an option</option>
               {userData.vehicles.map((vehicle) => (
-                <option key={vehicle.make} value={vehicle.make}>
-                  {vehicle.make} {vehicle.model} {vehicle.year}
+                <option key={vehicle.make} value={vehicle.make ?? ''}>
+                  {vehicle.make} {vehicle.car_model} {vehicle.year}
                 </option>
               ))}
             </select>
@@ -49,7 +49,7 @@ const VehicleDetails = () => {
                 <li><strong>Model:</strong>  {vehicle.car_model}</li>
                 <li><strong>Year:</strong> {vehicle.year}</li>
                 <li><strong>VIN:</strong> {vehicle.vin}</li>
-                <li><strong>Mileage:</strong> {vehicle.mileage}</li>
+                {/* <li><strong>Mileage:</strong> {vehicle.mileage}</li> */}
               </ul>
              );
            })}

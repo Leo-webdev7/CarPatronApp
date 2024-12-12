@@ -10,7 +10,7 @@ import ProfilePage from './pages/ProfilePage';
 import Reminders from './pages/Reminders';
 import ServiceRecords from './pages/ServiceRecords';
 import SignUpPage from './pages/SignUpPage';
-// import VehicleDetails from './pages/VehicleDetails';
+import VehicleDetails from './pages/VehicleDetails';
 import VehicleExpenses from './pages/VehicleExpenses';
 
 const router = createBrowserRouter([
@@ -43,10 +43,10 @@ const router = createBrowserRouter([
          path: '/Reminders',
          element: <Reminders/>
        },
-       /* {
+        {
          path: '/VehicleDetails',
          element: <VehicleDetails/>
-       }, */
+       },
        {
          path: '/VehicleExpenses',
          element: <VehicleExpenses/>

@@ -1,15 +1,18 @@
-import { useState } from 'react';
-import type { ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate} from 'react-router-dom';
 import { Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_VEHICLE } from '../apollo/mutations';
-import Auth from '../utils/auth';
 import type { Vehicle } from '../models/Vehicle';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const VehicleForm = () => {
   // set initial form state
-  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
+  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
+    // mileage: 0, 
+    services: []
+    // , expenses: [] 
+  });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -19,7 +22,7 @@ const VehicleForm = () => {
     const { name, value } = event.target;
     setVehicleFormData({ ...vehicleFormData, [name]: value });
   };
-
+  const navigate = useNavigate();
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -31,33 +34,26 @@ const VehicleForm = () => {
     }
 
     try {
-      const {data} = await AddVehicle({variables: {input: {
-        make: vehicleFormData.make,
-        car_model: vehicleFormData.car_model,
-        year: vehicleFormData.year,
-        vin: vehicleFormData.vin,
-        mileage: Number(vehicleFormData.mileage)
-      }}});
+      const response = await AddVehicle({variables: {input: vehicleFormData}});
 
-      if (data) {
-          const token = data.addUser.token;
-         Auth.login(token);
+      if (response) {
+            console.log('Vehicle Added successfully');
+            navigate('/Home'); // Redirect to home page
+        } else {
+            console.error('Failed to add vehicle');
+        }
+      } catch (error) {
+          console.error('Error creating journal entry:', error);
       }
 
-
-    } catch (err) {
-      console.error(err);
-      setShowAlert(true);
-    }
-
     setVehicleFormData({
-      make: '',
-      car_model: '',
-      year: '',
-      vin: '',
-      mileage: 0,
+      make: vehicleFormData.make,
+      car_model: vehicleFormData.car_model,
+      year: vehicleFormData.year,
+      vin: vehicleFormData.vin,
+      // mileage: 0,
       services: [], 
-      expenses: []
+      // expenses: []
     });
   };
 
@@ -85,11 +81,11 @@ const VehicleForm = () => {
         <div className='model-input'>
           <label htmlFor='car_model'>Model</label>
           <input
-            type='car_model'
+            type='text'
             placeholder='Vehicle model'
             name='car_model'
             onChange={handleInputChange}
-            value={vehicleFormData.car_model || ''}
+            value={vehicleFormData.car_model}
             required
           />          
         </div>
@@ -97,7 +93,7 @@ const VehicleForm = () => {
         <div className='year-input'>
           <label htmlFor='year'>Year</label>
           <input
-            type='year'
+            type='text'
             placeholder='Vehicle year manufactured'
             name='year'
             onChange={handleInputChange}
@@ -109,7 +105,7 @@ const VehicleForm = () => {
         <div className='vin-input'>
           <label htmlFor='vin'>VIN</label>
           <input
-            type='vin'
+            type='text'
             placeholder='VIN'
             name='vin'
             onChange={handleInputChange}
@@ -118,19 +114,20 @@ const VehicleForm = () => {
           />          
         </div>
 
-        <div className='mileage-input'>
+        {/* <div className='mileage-input'>
           <label htmlFor='mileage'>VIN</label>
           <input
-            type='mileage'
+            type='text'
             placeholder='Current vehicle mileage'
             name='mileage'
             onChange={handleInputChange}
             value={vehicleFormData.mileage || ''}
             required
-          />          
-        </div>
+          />           */}
+        {/* </div> */}
         <button
-          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
+          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin 
+            // && vehicleFormData.mileage
           type='submit'
           >
           Submit
