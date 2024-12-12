@@ -32,10 +32,24 @@ export const ADD_VEHICLE = gql`
     addVehicle(input: $input) {
         vehicles {
             make
-            model
+            car_model
             year
             vin
             mileage
+          }
+      }
+    }
+`;
+
+export const ADD_SERVICE = gql`
+  mutation addService($input: ServiceInput!) {
+    addService(input: $input) {
+          services {
+            name
+            date
+            mileage_performed
+            cost
+            is_outdated
           }
       }
     }

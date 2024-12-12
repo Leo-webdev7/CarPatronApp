@@ -11,6 +11,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
+// import models and destructure into users/vehicles/service intead of separate imports
+import models from './models/index.js';
+const { User, Vehicle, Service } = models;
+
+// import User from './models/User';
+// import Vehicle from './models/Vehicle';
+// import Service from './models/Service';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -29,11 +37,19 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  app.use('/graphql', expressMiddleware(server as any,
-    {
-      context: authenticateToken as any
-    }
-  ));
+  app.use('/graphql', expressMiddleware(server as any, {
+    context: async ({ req }) => {
+      const { user } = await authenticateToken({ req });
+      return {
+        user, // Authenticated user
+        models: {
+          User,
+          Vehicle,
+          Service,
+        },
+      };
+    },
+  }));
 
   // if we're in production, serve client/build as static assets
   if (process.env.NODE_ENV === 'production') {

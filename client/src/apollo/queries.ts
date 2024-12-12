@@ -10,7 +10,7 @@ export const GET_ME = gql`
         vehicle {
           _id
           make
-          model
+          car_model
           year
           vin
           mileage
@@ -24,10 +24,23 @@ export const GET_VEHICLE = gql`
     vehicle {
         _id
         make
-        model
+        car_model
         year
         vin
         mileage
+    }
+  }
+`;
+
+export const GET_SERVICE = gql`
+  query service {
+    service {
+        _id
+        name
+        date_performed
+        mileage
+        const
+        is_overdue
     }
   }
 `;

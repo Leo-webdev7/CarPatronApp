@@ -9,12 +9,12 @@ import type { Vehicle } from '../models/Vehicle';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const VehicleForm = () => {
   // set initial form state
-  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', model: '', year: '', vin: '', mileage: 0 });
+  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addUser] = useMutation(ADD_VEHICLE);
+  const [AddVehicle] = useMutation(ADD_VEHICLE);
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setVehicleFormData({ ...vehicleFormData, [name]: value });
@@ -31,7 +31,7 @@ const VehicleForm = () => {
     }
 
     try {
-      const {data} = await addUser({variables: {input: vehicleFormData}});
+      const {data} = await AddVehicle({variables: {input: vehicleFormData}});
 
       if (data) {
           const token = data.addUser.token;
@@ -46,10 +46,12 @@ const VehicleForm = () => {
 
     setVehicleFormData({
       make: '',
-      model: '',
+      car_model: '',
       year: '',
       vin: '',
-      mileage: 0
+      mileage: 0,
+      services: [], 
+      expenses: []
     });
   };
 
@@ -81,7 +83,7 @@ const VehicleForm = () => {
             placeholder='Vehicle model'
             name='model'
             onChange={handleInputChange}
-            value={vehicleFormData.model || ''}
+            value={vehicleFormData.car_model || ''}
             required
           />          
         </div>
@@ -122,7 +124,7 @@ const VehicleForm = () => {
           />          
         </div>
         <button
-          disabled={!(vehicleFormData.make && vehicleFormData.model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
+          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
           type='submit'
           >
           Submit

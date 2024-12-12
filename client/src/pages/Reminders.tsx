@@ -69,7 +69,7 @@ function Reminders() {
                   )}
 
                   <div className="actions">
-                    <button type="button" onClick={saveReminder}>
+                    <button className="saveButton" type="button" onClick={saveReminder}>
                       Save
                     </button>
                   </div>
