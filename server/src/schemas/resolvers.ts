@@ -83,9 +83,31 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
-        // getUserVehicles: async (): Promise<null> => {
-        //     return null
+        getVehicles: async (_parent: any, _args: any, context: Context): Promise<Vehicle[] | null> => {
+
+            if (context.user) {
+                const current_user = await User.findOne({_id:context.user._id}).populate('vehicles');
+                return current_user?.vehicles as unknown as Vehicle[] || null; // casts to unknown then Vehicle[] to agree on types, a bit sketchy
+            }
+            throw new AuthenticationError('You must be logged in to view this information.');
+        },
+        // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
+
+        //     if (context.user) {
+        //         const current_user = await User.findOne({_id:context.user._id}).populate('vehicles');
+        //         const user_vehicles = current_user?.vehicles as unknown as Vehicle[] || null; // casts to unknown then Vehicle[] to agree on types, a bit sketchy
+        //         return user_vehicles[0]; 
+        //     }
+        //     throw new AuthenticationError('You must be logged in to view this information.');
         // },
+        // getExpenses: async (_parent: any, _args: any, { vehicle_id }: { vehicle_id: string}, context: Context): Promise<User | null> => {
+
+        //     if (context.user) {
+        //         return await User.findOne({_id: })
+        //     }
+        //     throw AuthenticationError;
+        // },
+    },
         // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
         //     if (context.user) {
         //         return await Vehicle.findOne({_id:context.vehicle.vin})
@@ -96,7 +118,6 @@ const resolvers = {
         // getServiceDetails: async (_parent: any, _args: any, context: Context): => {
 
         // }
-    },
     Mutation: {
         login: async (_parent: any, {username, password}: {username: string, password: string}) => {
             const user = await User.findOne({username});

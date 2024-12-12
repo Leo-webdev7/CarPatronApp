@@ -33,7 +33,7 @@ const VehicleDetails = () => {
             return (
               <ul key={vehicle._id}>
                 <li><strong>Make:</strong>  {vehicle.make}</li>
-                <li><strong>Model:</strong>  {vehicle.model}</li>
+                <li><strong>Model:</strong>  {vehicle.car_model}</li>
                 <li><strong>Year:</strong> {vehicle.year}</li>
                 <li><strong>VIN:</strong> {vehicle.vin}</li>
                 <li><strong>Mileage:</strong> {vehicle.mileage}</li>

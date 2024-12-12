@@ -17,6 +17,7 @@ const typeDefs = `
   }
 
   type Vehicle {
+    _id: ID!
     vin: String!
     make: String!
     car_model: String!
@@ -67,6 +68,8 @@ const typeDefs = `
   type Query {
     me: User
     getUser(username: String!): User
+    getVehicles: [Vehicle]
+    getVehicle: Vehicle
   }
 
   type Mutation {
@@ -77,6 +80,7 @@ const typeDefs = `
 
 `;
 
-
+    // getExpenses(vehicle_id: ID!): [Service]
+    // getServices(vehicle_id: ID!): [Service]
 
 export default typeDefs;

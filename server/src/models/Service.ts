@@ -2,7 +2,7 @@ import { Schema, model, type Document } from 'mongoose';
 
 export interface IService extends Document {
   name: string,
-  serviceType: 'service' | 'expense',
+  serviceType: 'SERVICE' | 'EXPENSE',
   date_performed: Date,
   mileage_performed: number,
   cost: number,
@@ -18,7 +18,7 @@ const ServiceSchema = new Schema<IService>({
     serviceType: {
         type: String,
         required: true,
-        enum: ['service', 'expense'], // Only allow 'service' or 'expense'
+        enum: ['SERVICE', 'EXPENSE'], // Only allow 'service' or 'expense'
     },
     date_performed: {
         type: Date,
