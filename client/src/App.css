@@ -593,26 +593,6 @@ nav button:hover {
   background-color: #373b85;
 }
 
-.situation-description textarea {
-  color: #000;
-  width: calc(100% - 22px);
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
-
-@media screen and (max-width: 420) {
-  nav button {
-    max-width: 280px;
-  }
-  .journalButton, .tipsButton {
-    font-size: 1.75em;
-  }
-}
-
 /* Journal entry page  */
 
 .closeButton, .createButton {
@@ -878,4 +858,3 @@ tr:nth-child(odd) {
   border-color: #000 0.5px;
 }
 
-@media screen and (max-width: )
