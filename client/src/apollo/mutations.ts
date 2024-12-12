@@ -35,7 +35,7 @@ export const ADD_VEHICLE = gql`
             car_model
             year
             vin
-            mileage
+            # mileage
           }
       }
     }

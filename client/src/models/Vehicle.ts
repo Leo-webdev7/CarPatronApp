@@ -5,7 +5,7 @@ export interface Vehicle {
   car_model: string | null;
   year: string | null;
   vin: string | null;
-  mileage: number;
+  // mileage: number;
   services: Service[];
   expenses: Expense[];
 }

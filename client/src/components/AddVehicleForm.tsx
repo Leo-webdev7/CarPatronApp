@@ -9,7 +9,9 @@ import type { Vehicle } from '../models/Vehicle';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const VehicleForm = () => {
   // set initial form state
-  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
+  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
+    // mileage: 0, 
+    services: [], expenses: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -49,7 +51,7 @@ const VehicleForm = () => {
       car_model: '',
       year: '',
       vin: '',
-      mileage: 0,
+      // mileage: 0,
       services: [], 
       expenses: []
     });
@@ -112,7 +114,7 @@ const VehicleForm = () => {
           />          
         </div>
 
-        <div className='mileage-input'>
+        {/* <div className='mileage-input'>
           <label htmlFor='mileage'>VIN</label>
           <input
             type='text'
@@ -121,10 +123,12 @@ const VehicleForm = () => {
             onChange={handleInputChange}
             value={vehicleFormData.mileage || ''}
             required
-          />          
-        </div>
+          />           */}
+        {/* </div> */}
         <button
-          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
+          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin 
+            // && vehicleFormData.mileage
+          )}
           type='submit'
           >
           Submit
