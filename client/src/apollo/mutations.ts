@@ -30,12 +30,15 @@ export const ADDUSER = gql`
 export const ADD_VEHICLE = gql`
   mutation addVehicle($input: VehicleInput!) {
     addVehicle(input: $input) {
-        vehicles {
+      _id
+      username
+      email
+      vehicles {
             make
             car_model
             year
             vin
-            mileage
+            # mileage
           }
       }
     }
@@ -58,7 +61,7 @@ export const ADD_SERVICE = gql`
 export const ADD_EXPENSE = gql`
   mutation addExpense($input: ServiceInput!) {
     addExpense(input: $input) {
-          services {
+          expenses {
             name
             date
             mileage_performed
