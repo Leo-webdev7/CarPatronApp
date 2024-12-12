@@ -16,30 +16,43 @@ function HomePage () {
             <Header />
             <body className='mainMenu'>
                 <div className="icon-grid">
-                    <div className='menuButton'>
-                        <div><a href="/ProfilePage"><img src={profile} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Profile</p>
+                    <div>
+                        <div className='menuButton'>
+                        <div><a href="/ProfilePage"><img src={profile} alt="" className='menuIcon'/></a></div>    
                     </div>
-                    <div className='menuButton'>
+                    <p className='menuButtonText'>Profile</p>
+                    </div>
+                    <div>
+                        <div className='menuButton'>
                         <div><a href="/Reminders"><img src={clock} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Reminders</p>
                     </div>
-                    <div className='menuButton'>
+                    <p className='menuButtonText'>Reminders</p>
+                    </div>
+                    <div>
+                        <div className='menuButton'>
                         <div><a href=""><img src={vehicle} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Vehicle Details</p>
                     </div>
+                    <p className='menuButtonText'>Vehicle Details</p>
+                    </div>
+                    <div>
                     <div className='menuButton'>
-                        <div><a href=""><img src={service} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Service Records</p> 
+                        <div><a href="/ServiceRecords"><img src={service} alt="" className='menuIcon'/></a></div>
                     </div>
+                    <p className='menuButtonText'>Service Records</p> 
+                    </div>
+                    <div>
                     <div className='menuButton'>
-                        <div><a href="/AddVehicle"><img src={vehicle1} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Add Vehicle</p> 
+                        <div><a href="/AddVehicle"><img src={vehicle1} alt="" className='menuIcon'/></a></div> 
                     </div>
+                    <p className='menuButtonText'>Add Vehicle</p>
+                    </div>
+                    <div>
                     <div className='menuButton'>
-                        <div><a href="VehicleExpenses"><img src={money} alt="" className='menuIcon'/></a></div>
-                        <p className='menuButtonText'>Expense Rec.</p> 
+                        <div><a href="VehicleExpenses"><img src={money} alt="" className='menuIcon'/></a></div> 
                     </div>
+                    <p className='menuButtonText'>Expense Rec.</p>
+                    </div>
+                    
                 </div>
             </body>
         </div>

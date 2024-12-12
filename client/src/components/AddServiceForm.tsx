@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 import type { Service } from '../models/Service';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
-const SignupForm = () => {
+const AddServiceForm = () => {
   // set initial form state
   const [serviceFormData, setServiceFormData] = useState<Service>({ name: '', date: '', mileage_performed: 0, cost: 0, is_outdated: false });
   // set state for form validation
@@ -117,4 +117,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default AddServiceForm;
