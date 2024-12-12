@@ -235,6 +235,16 @@ footer {
   font-size: 20px;
 }
 
+.footer-reference a {
+  color: #649460;
+  text-decoration: none;
+}
+
+.footer-reference a.call {
+  color: #002BC1;
+  text-decoration: underline;
+}
+
 .footer-text {
   font-family: Inter;
   color: #000;
@@ -330,6 +340,7 @@ nav button:hover {
   font-weight: 700;
   line-height: 43.57px;
 }
+
 
 .nav-icon {
   margin-right: 10px;
