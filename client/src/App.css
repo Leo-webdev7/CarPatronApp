@@ -30,7 +30,6 @@ body {
   margin: 0 auto;
   padding: 0;
   font-size: 16px;
-  background-color:#ffffff;
   font-family: Inter, sans-serif;
 }
 
@@ -657,7 +656,7 @@ nav button:hover {
 .backButton {
   width: 35px;
   margin-left: 800px;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 /* Homepage menu */
@@ -669,7 +668,7 @@ nav button:hover {
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f4f4f4;
+      background-image: linear-gradient(120deg, #6f98fa 0%, #fb696e 100%);
     }
 
 .icon-grid {
@@ -720,6 +719,7 @@ nav button:hover {
       text-align: center;
       cursor: pointer;
       transition: transform 0.2s, background-color 0.3s;
+      margin-top: 20px;
     }
 
 .menuButton:hover {
@@ -738,6 +738,8 @@ nav button:hover {
   justify-content: center;
   margin-top: 20px;
   font-size: 15px;
+  color: #FFFFFF;
+  text-shadow: #007bff 0px 0px 5px;
 }
 
 
@@ -833,28 +835,55 @@ tr:nth-child(odd) {
   padding: 10px;
   background: rgb(230, 228, 228);
   border: 2px solid #000000;
-  border-radius: 8px;
+  border-radius: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: #000000;
+  margin-left: 0;
+  margin-right: 0;
   
 }
 
 .menuButton {
   box-shadow: #000 0px 0px 10px;
-  background-color:#f1efef;
+  background-color:#c7aff8; 
   padding-bottom: 10px;
+  box-shadow: #007bff 0px 0px 12px;
 }
 
-.body {
-  background-color: #f1efef;
-}
+
 
 .headerSmall h1 {
   font-size: 20px;
-  white-space: nowrap;
+  width: 100%;
+  padding: 5px;
 }
+
 
 .backButton img {
-  background-color: #f1efef;
-  border-color: #000 0.5px;
+  background-color: #c7aff8;
+}
+.backButton a {
+  box-shadow: #007bff 0px 0px 10px;
+  margin-top: 20px;
+}
+header {
+  background-color: #000000;
 }
 
+.login-wrap {
+  margin-top: 20px;
+}
+
+div.headerSmall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width:100%;
+  margin-top:0;
+  background-color: #000000;
+}
+
+body {
+  background-color:#ffffff;
+}
