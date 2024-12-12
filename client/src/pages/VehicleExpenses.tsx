@@ -1,8 +1,6 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 
-
-
 function VehicleExpenses() {
     return (
         <div>
