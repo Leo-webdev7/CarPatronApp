@@ -1,13 +1,14 @@
-import { Types, Schema, model, type Document } from 'mongoose';
+import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service.js';
 
 export interface IVehicle extends Document {
+  _id: ObjectId;
   vin: string;
   make: string;
   car_model: string;
   year: string;
-  services: Types.DocumentArray<IService>;
   mileage: number;
+  services: Types.DocumentArray<IService>;
 }
 
 const VehicleSchema = new Schema<IVehicle>({
@@ -29,7 +30,8 @@ const VehicleSchema = new Schema<IVehicle>({
   },
   mileage: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   services: {
     type: [ServiceSchema],
