@@ -16,7 +16,8 @@ interface Vehicle {
     vin: string;
     year: string;
     make: string;
-    model: string;
+    car_model: string;
+    mileage: number;
     services: Service[];
 }
 
@@ -25,7 +26,8 @@ interface AddVehicleArgs {
         vin: string;
         year: string;
         make: string;
-        model: string;
+        car_model: string;
+        mileage: number;
     }
 }
 
@@ -40,6 +42,7 @@ interface Service {
 
 // interface AddServiceArgs {
 //     input: {
+//         vin: string;
 //         name: string;
 //         date_performed: string;
 //         mileage_performed: number;
@@ -83,9 +86,31 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
-        // getUserVehicles: async (): Promise<null> => {
-        //     return null
+        getVehicles: async (_parent: any, _args: any, context: Context): Promise<Vehicle[] | null> => {
+
+            if (context.user) {
+                const current_user = await User.findOne({_id:context.user._id}).populate('vehicles');
+                return current_user?.vehicles as unknown as Vehicle[] || null; // casts to unknown then Vehicle[] to agree on types, a bit sketchy
+            }
+            throw new AuthenticationError('You must be logged in to view this information.');
+        },
+        // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
+
+        //     if (context.user) {
+        //         const current_user = await User.findOne({_id:context.user._id}).populate('vehicles');
+        //         const user_vehicles = current_user?.vehicles as unknown as Vehicle[] || null; // casts to unknown then Vehicle[] to agree on types, a bit sketchy
+        //         return user_vehicles[0]; 
+        //     }
+        //     throw new AuthenticationError('You must be logged in to view this information.');
         // },
+        // getExpenses: async (_parent: any, _args: any, { vehicle_id }: { vehicle_id: string}, context: Context): Promise<User | null> => {
+
+        //     if (context.user) {
+        //         return await User.findOne({_id: })
+        //     }
+        //     throw AuthenticationError;
+        // },
+    },
         // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
         //     if (context.user) {
         //         return await Vehicle.findOne({_id:context.vehicle.vin})
@@ -96,7 +121,6 @@ const resolvers = {
         // getServiceDetails: async (_parent: any, _args: any, context: Context): => {
 
         // }
-    },
     Mutation: {
         login: async (_parent: any, {username, password}: {username: string, password: string}) => {
             const user = await User.findOne({username});
@@ -140,8 +164,8 @@ const resolvers = {
 
         addVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
             if (context.user && input) {
-                const { vin, year, make, model } = input;
-                const newVehicle = { vin, year, make, model };
+                const { vin, year, make, car_model, mileage } = input;
+                const newVehicle = { vin, year, make, car_model, mileage };
 
                 return await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -173,8 +197,18 @@ const resolvers = {
 
         // },
 
-        // addService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
-            
+        // addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
+        //     if (context.user && input) {
+        //         const { vin, name, date_performed, mileage_performed, cost, description, is_overdue } = input;
+        //         const newService = { name, date_performed, mileage_performed, cost, description, is_overdue };
+
+        //         return await User.findOneAndUpdate(
+        //             { _id: context.user._id, 'vehicles.vin': { vin } },
+        //             { $addToSet: { 'vehicles.services': newService } },
+        //             { new: true }
+        //         );
+        //     };
+        //     throw new Error("Failed to add service");
         // },
 
         // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
