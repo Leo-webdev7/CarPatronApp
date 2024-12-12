@@ -31,6 +31,7 @@ const typeDefs = `
     make: String!
     car_model: String!
     year: String!
+    mileage: Int
     services: [ServiceInput]
   }
 
@@ -76,6 +77,7 @@ const typeDefs = `
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
     addVehicle(input: VehicleInput!): User
+    addService(vin: String!, input: ServiceInput!): User
   }
 
 `;

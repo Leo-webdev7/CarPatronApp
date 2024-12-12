@@ -16,7 +16,8 @@ interface Vehicle {
     vin: string;
     year: string;
     make: string;
-    model: string;
+    car_model: string;
+    mileage: number;
     services: Service[];
 }
 
@@ -25,7 +26,8 @@ interface AddVehicleArgs {
         vin: string;
         year: string;
         make: string;
-        model: string;
+        car_model: string;
+        mileage: number;
     }
 }
 
@@ -40,6 +42,7 @@ interface Service {
 
 // interface AddServiceArgs {
 //     input: {
+//         vin: string;
 //         name: string;
 //         date_performed: string;
 //         mileage_performed: number;
@@ -161,8 +164,8 @@ const resolvers = {
 
         addVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
             if (context.user && input) {
-                const { vin, year, make, model } = input;
-                const newVehicle = { vin, year, make, model };
+                const { vin, year, make, car_model, mileage } = input;
+                const newVehicle = { vin, year, make, car_model, mileage };
 
                 return await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -194,8 +197,18 @@ const resolvers = {
 
         // },
 
-        // addService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
-            
+        // addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
+        //     if (context.user && input) {
+        //         const { vin, name, date_performed, mileage_performed, cost, description, is_overdue } = input;
+        //         const newService = { name, date_performed, mileage_performed, cost, description, is_overdue };
+
+        //         return await User.findOneAndUpdate(
+        //             { _id: context.user._id, 'vehicles.vin': { vin } },
+        //             { $addToSet: { 'vehicles.services': newService } },
+        //             { new: true }
+        //         );
+        //     };
+        //     throw new Error("Failed to add service");
         // },
 
         // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
