@@ -34,7 +34,10 @@ const userSchema = new Schema<UserDocument>(
       required: true,
       unique: false,
     },
-      vehicles: [VehicleSchema]
+    vehicles: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Vehicle'
+    }]
   },
   // set this to use virtual below
   {
@@ -63,6 +66,30 @@ userSchema.pre('insertMany', async function (next, docs) {
   }
   next();
 
+});
+
+// Pre-hook to handle vehicles and services creation
+userSchema.pre('save', async function (next) {
+  if (this.isModified('vehicles')) {
+    const vehiclePromises = this.vehicles.map(async (vehicle: any) => {
+      const servicePromises = vehicle.services.map(async (service: any) => {
+        const newService = await service.create(service);
+        return newService._id;
+      });
+
+      const serviceIds = await Promise.all(servicePromises);
+      const newVehicle = await vehicle.create({
+        ...vehicle,
+        services: serviceIds,
+      });
+
+      return newVehicle._id;
+    });
+
+    const vehicleIds = await Promise.all(vehiclePromises);
+    this.vehicles = vehicleIds as unknown as Types.DocumentArray<IVehicle>;  
+  }
+  next();
 });
 
 // custom method to compare and validate password for logging in
