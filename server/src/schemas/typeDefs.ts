@@ -33,8 +33,14 @@ const typeDefs = `
     services: [ServiceInput]
   }
 
+  enum ServiceType {
+    SERVICE
+    EXPENSE
+  }
+
   type Service {
     name: String!
+    serviceType: ServiceType!
     date_performed: String!
     mileage_performed: Int
     cost: Float
@@ -44,11 +50,13 @@ const typeDefs = `
 
   input ServiceInput {
     name: String!
+    serviceType: ServiceType!
     date_performed: String!
     mileage_performed: Int
     cost: Float!
     description: String
     is_overdue: Boolean
+    
   }
 
   type Auth {
