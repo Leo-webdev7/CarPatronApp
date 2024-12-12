@@ -32,7 +32,7 @@ export const ADD_VEHICLE = gql`
     addVehicle(input: $input) {
         vehicles {
             make
-            model
+            car_model
             year
             vin
             mileage

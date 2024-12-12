@@ -27,17 +27,14 @@ const userSchema = new Schema<UserDocument>(
     },
     password: {
       type: String,
-      required: true,
+      required: false,
     },
     phonenumber: {
       type: String,
       required: true,
       unique: false,
     },
-      vehicles: {
-    type: [VehicleSchema],
-    default: [],
-  },
+      vehicles: [VehicleSchema]
   },
   // set this to use virtual below
   {
