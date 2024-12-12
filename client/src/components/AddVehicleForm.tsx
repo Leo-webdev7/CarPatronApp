@@ -126,7 +126,7 @@ const VehicleForm = () => {
           />           */}
         {/* </div> */}
         <button
-          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin 
+          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin)} 
             // && vehicleFormData.mileage
           type='submit'
           >
