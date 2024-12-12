@@ -10,9 +10,11 @@
                 "make": "Toyota",
                 "car_model": "Highlander",
                 "year": "2013",
+                "mileage": 98644,
                 "services": [
                     {
                         "name": "Headlight Fluid",
+                        "serviceType": "EXPENSE",
                         "date_performed": "12-15-2024",
                         "mileage_performed": 130950,
                         "cost": 3000.99,
@@ -34,12 +36,41 @@
                 "make": "Mercury",
                 "car_model": "Cougar",
                 "year": "1998",
+                "mileage": 200000,
                 "services": [
                     {
                         "name": "Oil Change",
+                        "serviceType": "SERVICE",
                         "date_performed": "12-15-2024",
                         "mileage_performed": 130950,
                         "cost": 75.99,
+                        "description": "Got it done at Jiffy Lube on First St.",
+                        "is_overdue": false
+                    },
+                    {
+                        "name": "Gas",
+                        "serviceType": "EXPENSE",
+                        "date_performed": "12-15-2024",
+                        "mileage_performed": 130950,
+                        "cost": 75.99,
+                        "description": "Got it done at Jiffy Lube on First St.",
+                        "is_overdue": false
+                    }   
+                ]
+            },
+            {
+                "vin": "2GKFLWE51C6193218",
+                "make": "Mitsubishi",
+                "car_model": "Runner Concept",
+                "year": "2029",
+                "mileage": 4000,
+                "services": [
+                    {
+                        "name": "Headlight Fluid",
+                        "serviceType": "EXPENSE",
+                        "date_performed": "12-15-2024",
+                        "mileage_performed": 130950,
+                        "cost": 3000.99,
                         "description": "Got it done at Jiffy Lube on First St.",
                         "is_overdue": false
                     }
