@@ -2,22 +2,22 @@ import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { ADD_SERVICE } from '../apollo/mutations';
+import { ADD_EXPENSE } from '../apollo/mutations';
 import Auth from '../utils/auth';
-import type { Service } from '../models/Service';
+import type { Expense } from '../models/Expense';
 
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
-const SignupForm = () => {
+const ExpenseForm = () => {
   // set initial form state
-  const [serviceFormData, setServiceFormData] = useState<Service>({ name: '', date: '', mileage_performed: 0, cost: 0, is_outdated: false });
+  const [expenseFormData, setExpenseFormData] = useState<Expense>({ name: '', date: '', mileage_performed: 0, cost: 0, is_outdated: false });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  const [addService] = useMutation(ADD_SERVICE);
+  const [addService] = useMutation(ADD_EXPENSE);
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setServiceFormData({ ...serviceFormData, [name]: value });
+    setExpenseFormData({ ...expenseFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -31,10 +31,10 @@ const SignupForm = () => {
     }
 
     try {
-      const {data} = await addService({variables: {input: serviceFormData}});
+      const {data} = await addService({variables: {input: expenseFormData}});
 
       if (data) {
-          const token = data.addService.token;
+          const token = data.addExpense.token;
          Auth.login(token);
       }
 
@@ -44,7 +44,7 @@ const SignupForm = () => {
       setShowAlert(true);
     }
 
-    setServiceFormData({
+    setExpenseFormData({
       name: '', date: '', mileage_performed: 0, cost: 0, is_outdated: false 
     });
   };
@@ -59,13 +59,13 @@ const SignupForm = () => {
         </Alert>
 
         <div className='name-input'>
-          <label htmlFor='name'>Name of Service</label>
+          <label htmlFor='name'>Name of Expense</label>
           <input
             type='name'
-            placeholder='Service performed'
+            placeholder='Expense purchased'
             name='name'
             onChange={handleInputChange}
-            value={serviceFormData.name || ''}
+            value={expenseFormData.name || ''}
             required
           />
         </div>
@@ -77,7 +77,7 @@ const SignupForm = () => {
             placeholder='Service date'
             name='date'
             onChange={handleInputChange}
-            value={serviceFormData.date || ''}
+            value={expenseFormData.date || ''}
             required
           />          
         </div>
@@ -89,7 +89,7 @@ const SignupForm = () => {
             placeholder='Mileage as of service'
             name='mileage'
             onChange={handleInputChange}
-            value={serviceFormData.mileage_performed || ''}
+            value={expenseFormData.mileage_performed || ''}
             required
           />         
         </div>
@@ -101,13 +101,13 @@ const SignupForm = () => {
             placeholder='Service cost'
             name='cost'
             onChange={handleInputChange}
-            value={serviceFormData.cost || ''}
+            value={expenseFormData.cost || ''}
             required
           />          
         </div>        
 
         <button
-          disabled={!(serviceFormData.name && serviceFormData.date && serviceFormData.mileage_performed && serviceFormData.cost )}
+          disabled={!(expenseFormData.name && expenseFormData.date && expenseFormData.mileage_performed && expenseFormData.cost )}
           type='submit'
           >
           Submit
@@ -117,4 +117,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default ExpenseForm;
