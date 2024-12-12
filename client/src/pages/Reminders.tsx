@@ -2,7 +2,7 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 import clock from '../assets/icons/clock-alarm.svg';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Reminders() {
   const [selectedFrequency, setSelectedFrequency] = useState("once");

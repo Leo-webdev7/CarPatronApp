@@ -32,6 +32,19 @@ export const GET_VEHICLE = gql`
   }
 `;
 
+export const GET_SERVICE = gql`
+  query service {
+    service {
+        _id
+        name
+        date_performed
+        mileage
+        const
+        is_overdue
+    }
+  }
+`;
+
 export const GET_EXPENSE = gql`
   query expense {
     expense {

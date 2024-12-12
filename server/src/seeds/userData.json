@@ -1,0 +1,50 @@
+[
+    {
+        "username": "LebronJames",
+        "email": "akronkid@gmail.com",
+        "password": "cavs2018",
+        "phonenumber": "1234567890",
+        "vehicles": [
+            {
+                "vin": "2GKFLWE51C6193218",
+                "make": "Toyota",
+                "car_model": "Highlander",
+                "year": "2013",
+                "services": [
+                    {
+                        "name": "Headlight Fluid",
+                        "date_performed": "12-15-2024",
+                        "mileage_performed": 130950,
+                        "cost": 3000.99,
+                        "description": "Got it done at Jiffy Lube on First St.",
+                        "is_overdue": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "username": "BrianKernighan",
+        "email": "bkernighan@techfriends.dev",
+        "password": "password01",
+        "phonenumber": "1234567890",
+        "vehicles": [
+            {
+                "vin": "1MEBM62F2JH693379",
+                "make": "Mercury",
+                "car_model": "Cougar",
+                "year": "1998",
+                "services": [
+                    {
+                        "name": "Oil Change",
+                        "date_performed": "12-15-2024",
+                        "mileage_performed": 130950,
+                        "cost": 75.99,
+                        "description": "Got it done at Jiffy Lube on First St.",
+                        "is_overdue": false
+                    }
+                ]
+            }
+        ]
+    }
+]
