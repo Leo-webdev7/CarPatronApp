@@ -1,5 +1,5 @@
 import { Types, Schema, model, type Document } from 'mongoose';
-import { IVehicle, VehicleSchema } from './Vehicle';
+import { IVehicle, VehicleSchema } from './Vehicle.js';
 import bcrypt from 'bcrypt';
 
 export interface UserDocument extends Document {
