@@ -31,7 +31,13 @@ const VehicleForm = () => {
     }
 
     try {
-      const {data} = await AddVehicle({variables: {input: vehicleFormData}});
+      const {data} = await AddVehicle({variables: {input: {
+        make: vehicleFormData.make,
+        car_model: vehicleFormData.car_model,
+        year: vehicleFormData.year,
+        vin: vehicleFormData.vin,
+        mileage: Number(vehicleFormData.mileage)
+      }}});
 
       if (data) {
           const token = data.addUser.token;
@@ -77,11 +83,11 @@ const VehicleForm = () => {
         </div>
 
         <div className='model-input'>
-          <label htmlFor='model'>Model</label>
+          <label htmlFor='car_model'>Model</label>
           <input
-            type='model'
+            type='car_model'
             placeholder='Vehicle model'
-            name='model'
+            name='car_model'
             onChange={handleInputChange}
             value={vehicleFormData.car_model || ''}
             required

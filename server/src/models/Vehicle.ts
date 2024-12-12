@@ -30,6 +30,7 @@ const VehicleSchema = new Schema<IVehicle>({
   },
   mileage: {
     type: Number,
+    required: true,
     default: 0
   },
   services: {
