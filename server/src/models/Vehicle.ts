@@ -1,4 +1,4 @@
-import { Types, Schema, model, ObjectId, type Document } from 'mongoose';
+import { Types, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service.js';
 
 export interface IVehicle extends Document {
