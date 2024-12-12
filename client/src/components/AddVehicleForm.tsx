@@ -9,7 +9,7 @@ import type { Vehicle } from '../models/Vehicle';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const VehicleForm = () => {
   // set initial form state
-  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
+  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -46,7 +46,7 @@ const VehicleForm = () => {
 
     setVehicleFormData({
       make: '',
-      model: '',
+      car_model: '',
       year: '',
       vin: '',
       mileage: 0,
@@ -77,13 +77,13 @@ const VehicleForm = () => {
         </div>
 
         <div className='model-input'>
-          <label htmlFor='model'>Model</label>
+          <label htmlFor='car_model'>Model</label>
           <input
-            type='model'
+            type='text'
             placeholder='Vehicle model'
-            name='model'
+            name='car_model'
             onChange={handleInputChange}
-            value={vehicleFormData.model || ''}
+            value={vehicleFormData.car_model || ''}
             required
           />          
         </div>
@@ -91,7 +91,7 @@ const VehicleForm = () => {
         <div className='year-input'>
           <label htmlFor='year'>Year</label>
           <input
-            type='year'
+            type='text'
             placeholder='Vehicle year manufactured'
             name='year'
             onChange={handleInputChange}
@@ -103,7 +103,7 @@ const VehicleForm = () => {
         <div className='vin-input'>
           <label htmlFor='vin'>VIN</label>
           <input
-            type='vin'
+            type='text'
             placeholder='VIN'
             name='vin'
             onChange={handleInputChange}
@@ -115,7 +115,7 @@ const VehicleForm = () => {
         <div className='mileage-input'>
           <label htmlFor='mileage'>VIN</label>
           <input
-            type='mileage'
+            type='text'
             placeholder='Current vehicle mileage'
             name='mileage'
             onChange={handleInputChange}
@@ -124,7 +124,7 @@ const VehicleForm = () => {
           />          
         </div>
         <button
-          disabled={!(vehicleFormData.make && vehicleFormData.model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
+          disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin && vehicleFormData.mileage)}
           type='submit'
           >
           Submit
