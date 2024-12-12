@@ -7,6 +7,7 @@ export interface IVehicle extends Document {
   car_model: string;
   year: string;
   services: Types.DocumentArray<IService>;
+  mileage: number;
 }
 
 const VehicleSchema = new Schema<IVehicle>({
@@ -24,6 +25,10 @@ const VehicleSchema = new Schema<IVehicle>({
   },
   car_model: {
     type: String,
+    required: true
+  },
+  mileage: {
+    type: Number,
     required: true
   },
   services: {
