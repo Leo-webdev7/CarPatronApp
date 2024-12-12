@@ -12,6 +12,7 @@ import ServiceRecords from './pages/ServiceRecords';
 import SignUpPage from './pages/SignUpPage';
 // import VehicleDetails from './pages/VehicleDetails';
 import VehicleExpenses from './pages/VehicleExpenses';
+import AddServiceForm from './components/AddServiceForm';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
        {
          path: '/ServiceRecords',
          element: <ServiceRecords/>
+       }, 
+       {
+         path: '/AddServiceForm',
+         element: <AddServiceForm/>
        }, 
     ],
   },

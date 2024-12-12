@@ -97,10 +97,11 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
 }
 
 .box {
-  max-width: 420px;
+  max-width: fit-content;
+  min-width: 300px;
   background: #E7E5E5;
   padding: 20px;
-  display: block;
+  display: flex;
   margin: 0 auto 20px;
   border: 2px solid #3B3535;
 }
@@ -848,6 +849,12 @@ input {
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!CAR PATRON SETTINGS STARTS HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+/* Header home */
+
+.logoutPicture {
+  width: 60px;
+}
 
 /* header small */
 
