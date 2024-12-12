@@ -30,6 +30,7 @@ const typeDefs = `
     make: String!
     car_model: String!
     year: String!
+    mileage: Int
     services: [ServiceInput]
   }
 
