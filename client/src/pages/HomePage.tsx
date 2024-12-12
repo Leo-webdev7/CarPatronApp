@@ -1,4 +1,9 @@
 import '../App.css';
+<<<<<<< Updated upstream
+=======
+import HeaderSmall from '../components/HeaderSmall';
+//import logo from '../assets/logo/car-patron-logo.png';
+>>>>>>> Stashed changes
 import profile from '../assets/icons/profile-circle.svg';
 import clock from '../assets/icons/clock-alarm.svg';
 import Header from '../components/Header';
@@ -6,7 +11,17 @@ import vehicle from '../assets/icons/vehicle.svg';
 import service from '../assets/icons/service.svg';
 import vehicle1 from '../assets/icons/vehicle1.svg';
 import money from '../assets/icons/money.svg';
+<<<<<<< Updated upstream
 
+=======
+// import Footer from "../components/Footer";
+//import Nav2 from "../components/Nav2"
+// import Nav from "../components/Nav"
+//import { useEffect, useState } from 'react';
+//import { useNavigate } from 'react-router-dom';
+//import Auth from '../utils/auth';
+// import Nav from "../components/Nav";
+>>>>>>> Stashed changes
 
 
 
