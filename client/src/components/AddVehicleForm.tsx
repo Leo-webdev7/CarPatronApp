@@ -9,7 +9,7 @@ import type { Vehicle } from '../models/Vehicle';
 // biome-ignore lint/correctness/noEmptyPattern: <explanation>
 const VehicleForm = () => {
   // set initial form state
-  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', model: '', year: '', vin: '', mileage: 0 });
+  const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', model: '', year: '', vin: '', mileage: 0, services: [], expenses: [] });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -49,7 +49,9 @@ const VehicleForm = () => {
       model: '',
       year: '',
       vin: '',
-      mileage: 0
+      mileage: 0,
+      services: [], 
+      expenses: []
     });
   };
 
