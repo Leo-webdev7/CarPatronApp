@@ -230,8 +230,8 @@ const resolvers = {
                 }
 
                 return await User.findOneAndUpdate(
-                    { _id: context.user._id, 'vehicles.vin': { vin } },
-                    { $addToSet: { 'vehicles.services': newService } },
+                    { _id: context.user._id, 'vehicles.vin': vin },
+                    { $push: { 'vehicles.$.services': newService } },
                     { new: true }
                 );
             };
