@@ -17,6 +17,7 @@ const typeDefs = `
   }
 
   type Vehicle {
+    _id: ID!
     vin: String!
     make: String!
     car_model: String!
@@ -30,11 +31,18 @@ const typeDefs = `
     make: String!
     car_model: String!
     year: String!
+    mileage: Int
     services: [ServiceInput]
+  }
+
+  enum ServiceType {
+    SERVICE
+    EXPENSE
   }
 
   type Service {
     name: String!
+    serviceType: ServiceType!
     date_performed: String!
     mileage_performed: Int
     cost: Float
@@ -44,11 +52,13 @@ const typeDefs = `
 
   input ServiceInput {
     name: String!
+    serviceType: ServiceType!
     date_performed: String!
     mileage_performed: Int
     cost: Float!
     description: String
     is_overdue: Boolean
+    
   }
 
   type Auth {
@@ -59,16 +69,20 @@ const typeDefs = `
   type Query {
     me: User
     getUser(username: String!): User
+    getVehicles: [Vehicle]
+    getVehicle: Vehicle
   }
 
   type Mutation {
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
     addVehicle(input: VehicleInput!): User
+    addService(vin: String!, input: ServiceInput!): User
   }
 
 `;
 
-
+    // getExpenses(vehicle_id: ID!): [Service]
+    // getServices(vehicle_id: ID!): [Service]
 
 export default typeDefs;

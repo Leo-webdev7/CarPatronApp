@@ -50,14 +50,16 @@ const AddServiceForm = () => {
   };
 
   return (
-    <div className='signup-wrap box'>
+    <div className='signup-wrap'>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
-
+        <div>
+          <p className='input-label'>Add Service Record:</p>
+        </div>
         <div className='name-input'>
           <label htmlFor='name'>Name of Service</label>
           <input
