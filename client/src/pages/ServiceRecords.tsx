@@ -1,7 +1,7 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 import service from '../assets/icons/service.svg';
-import AddServiceForm from '../components/AddServiceForm'
+import AddServiceMain from '../components/AddService';
 
 
 function ServiceRecords () {
@@ -10,8 +10,7 @@ function ServiceRecords () {
         <HeaderSmall />
         <div className="user-profile">
         <img src={service} alt="service" className="user-profile-img" />
-        <AddServiceForm />
-        
+        <AddServiceMain />
         </div>
         </div>
         

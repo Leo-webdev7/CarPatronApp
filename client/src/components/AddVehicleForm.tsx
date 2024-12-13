@@ -9,7 +9,7 @@ import type { Vehicle } from '../models/Vehicle';
 const VehicleForm = () => {
   // set initial form state
   const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
-    // mileage: 0, 
+    mileage: 0, 
     services: []
     // , expenses: [] 
   });
@@ -18,11 +18,14 @@ const VehicleForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   const [AddVehicle] = useMutation(ADD_VEHICLE);
+  
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setVehicleFormData({ ...vehicleFormData, [name]: value });
   };
+  
   const navigate = useNavigate();
+
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -32,29 +35,30 @@ const VehicleForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    // setVehicleFormData({
+    //   make: vehicleFormData.make,
+    //   car_model: vehicleFormData.car_model,
+    //   year: vehicleFormData.year,
+    //   vin: vehicleFormData.vin,
+    //   // mileage: 0,
+    //   services: [], 
+    //   // expenses: []
+    // });
+    console.log('Submitting vehicle data:', vehicleFormData);
     try {
       const response = await AddVehicle({variables: {input: vehicleFormData}});
 
       if (response) {
             console.log('Vehicle Added successfully');
-            navigate('/Home'); // Redirect to home page
+            navigate('/VehicleDetails'); // Redirect to home page
         } else {
             console.error('Failed to add vehicle');
         }
       } catch (error) {
-          console.error('Error creating journal entry:', error);
+          console.error('Error adding vehicle:', error);
       }
 
-    setVehicleFormData({
-      make: vehicleFormData.make,
-      car_model: vehicleFormData.car_model,
-      year: vehicleFormData.year,
-      vin: vehicleFormData.vin,
-      // mileage: 0,
-      services: [], 
-      // expenses: []
-    });
+
   };
 
   return (
@@ -63,7 +67,7 @@ const VehicleForm = () => {
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
+          Something went wrong with adding your vehicle!
         </Alert>
 
         <div className='make-input'>
@@ -113,8 +117,7 @@ const VehicleForm = () => {
             required
           />          
         </div>
-
-        {/* <div className='mileage-input'>
+        <div className='mileage-input'>
           <label htmlFor='mileage'>VIN</label>
           <input
             type='text'
@@ -123,11 +126,11 @@ const VehicleForm = () => {
             onChange={handleInputChange}
             value={vehicleFormData.mileage || ''}
             required
-          />           */}
-        {/* </div> */}
+          />           
+        </div>
         <button
           disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin 
-            // && vehicleFormData.mileage
+            && vehicleFormData.mileage)}
           type='submit'
           >
           Submit

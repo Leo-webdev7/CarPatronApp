@@ -12,7 +12,7 @@ export const GET_ME = gql`
           car_model
           year
           vin
-          # mileage
+          mileage
       }
     }
   }
@@ -25,7 +25,7 @@ export const GET_VEHICLE = gql`
         car_model
         year
         vin
-        # mileage
+        mileage
     }
   }
 `;
