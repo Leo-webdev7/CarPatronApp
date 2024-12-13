@@ -5,7 +5,7 @@ import App from './App';
 import HomePage from './pages/HomePage';
 import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
-//import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Reminders from './pages/Reminders';
 import ServiceRecords from './pages/ServiceRecords';

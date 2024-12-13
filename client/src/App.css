@@ -215,6 +215,8 @@ p {
   line-height: 2em;
 }
 
+
+
 /*--------------------- Reminders page -------------------- */
 
 .reminders-box {
@@ -269,16 +271,30 @@ p {
 
 }
 
+.vehicle-details-img {
+  display: block;
+  margin: 0 auto 20px;
+  text-align: center;
+  width: 5%;
+}
+
 .number-of-vehicles {
   display:block;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .vehicle-profile select {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 5px;
+}
+
+ul.vehicle-details {
+  list-style: none;
+  line-height: 2em;
+  margin: 0 auto;
+  padding: 0;
 }
 
 /* -       Footer Help Line -------- */
