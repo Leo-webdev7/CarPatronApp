@@ -6,5 +6,5 @@ export interface Service {
   mileage_performed: number;
   cost: number;
   description: string;
-  is_outdated: boolean;
+  is_overdue: boolean;
 }
