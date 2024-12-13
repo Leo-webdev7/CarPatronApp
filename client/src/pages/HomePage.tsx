@@ -1,31 +1,40 @@
 import '../App.css';
-<<<<<<< Updated upstream
-=======
-import HeaderSmall from '../components/HeaderSmall';
-//import logo from '../assets/logo/car-patron-logo.png';
->>>>>>> Stashed changes
 import profile from '../assets/icons/profile-circle.svg';
 import clock from '../assets/icons/clock-alarm.svg';
-import Header from '../components/Header';
+import Header from '../components/HeaderHome';
 import vehicle from '../assets/icons/vehicle.svg';
 import service from '../assets/icons/service.svg';
 import vehicle1 from '../assets/icons/vehicle1.svg';
 import money from '../assets/icons/money.svg';
-<<<<<<< Updated upstream
-
-=======
-// import Footer from "../components/Footer";
-//import Nav2 from "../components/Nav2"
-// import Nav from "../components/Nav"
-//import { useEffect, useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
-//import Auth from '../utils/auth';
-// import Nav from "../components/Nav";
->>>>>>> Stashed changes
+import Auth from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 
 function HomePage () {
+    const [loginCheck, setLoginCheck] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkLogin = () => {
+            if (Auth.loggedIn()) {
+                setLoginCheck(true);  // User is logged in
+            } else {
+                // If not logged in, log out and redirect
+                Auth.logout();
+                alert(`Not Logged In/Session Expired!\nPlease Log In`);
+                navigate('/');  // Redirect to login page
+            }
+        };
+        checkLogin();
+    }, [navigate]);
+
+    if (!loginCheck) {
+        return null;  // Render nothing until login check is done
+    }
+
+
     return (
         <div className="welcome-wrap">
             <Header />

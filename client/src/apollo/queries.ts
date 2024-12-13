@@ -7,8 +7,7 @@ export const GET_ME = gql`
         username
         email
         phonenumber
-        vehicle {
-          _id
+        vehicles {        
           make
           car_model
           year
@@ -21,8 +20,7 @@ export const GET_ME = gql`
 
 export const GET_VEHICLE = gql`
   query vehicle {
-    vehicle {
-        _id
+    vehicles {
         make
         car_model
         year
@@ -34,8 +32,7 @@ export const GET_VEHICLE = gql`
 
 export const GET_SERVICE = gql`
   query service {
-    service {
-        _id
+    services {
         name
         date_performed
         mileage
@@ -47,8 +44,7 @@ export const GET_SERVICE = gql`
 
 export const GET_EXPENSE = gql`
   query expense {
-    expense {
-        _id
+    expenses {
         name
         date_performed
         mileage

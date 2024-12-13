@@ -1,6 +1,8 @@
 import { Types, ObjectId, Schema, model, type Document } from 'mongoose';
 import { IService, ServiceSchema } from './Service.js';
 
+
+
 export interface IVehicle extends Document {
   _id: ObjectId;
   vin: string;
@@ -30,6 +32,7 @@ const VehicleSchema = new Schema<IVehicle>({
   },
   mileage: {
     type: Number,
+    required: true,
     default: 0
   },
   services: {
