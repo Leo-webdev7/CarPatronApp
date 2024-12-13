@@ -34,11 +34,6 @@ const VehicleSchema = new Schema<IVehicle>({
     type: String,
     required: true
   },
-  mileage: {
-    type: Number,
-    required: true,
-    default: 0
-  },
   services: {
     type: [ServiceSchema],
     default: []
