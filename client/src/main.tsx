@@ -5,7 +5,7 @@ import App from './App';
 import HomePage from './pages/HomePage';
 import AddVehicle from './pages/AddVehicle'
 // import ErrorPage from './pages/Errorpage';
-import LoginPage from './pages/LoginPage';
+//import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Reminders from './pages/Reminders';
 import ServiceRecords from './pages/ServiceRecords';
@@ -40,6 +40,7 @@ const router = createBrowserRouter([
         path: '/ProfilePage',
         element: <ProfilePage/>
       }, 
+
        {
          path: '/Reminders',
          element: <Reminders/>
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
          path: '/ServiceRecords',
          element: <ServiceRecords/>
        }, 
+
        {
          path: '/AddServiceForm',
          element: <AddServiceForm/>
@@ -71,4 +73,3 @@ if(rootElement) {
     <RouterProvider router={router} />
   );
 }
-
