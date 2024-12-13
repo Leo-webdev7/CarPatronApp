@@ -98,12 +98,12 @@ const resolvers = {
             throw new AuthenticationError('You must be logged in to view this information.');
         },
         
-        getServices: async (_parent: any, { vehicleId }: { vehicleId: string }, context: Context): Promise<IService[] | null> => {
+        getServices: async (_parent: any, { vin }: { vin: string }, context: Context): Promise<IService[] | null> => {
             try {
                 if (context.user) {
                     // Find the user and get the specific vehicle by its _id
                     const user = await User.findOne(
-                        { _id: context.user._id, 'vehicles._id': vehicleId },
+                        { _id: context.user._id, 'vehicles.vin': vin },
                         { 'vehicles.$': 1 } // Only include the matched vehicle
                     );
 
