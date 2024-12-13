@@ -54,7 +54,7 @@ function HomePage () {
                     </div>
                     <div>
                         <div className='menuButton'>
-                        <div><a href="/VehicleDetails"><img src={vehicle} alt="" className='menuIcon'/></a></div>
+                        <div><a href=""><img src={vehicle} alt="" className='menuIcon'/></a></div>
                     </div>
                     <p className='menuButtonText'>Vehicle Details</p>
                     </div>

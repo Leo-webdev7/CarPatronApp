@@ -11,7 +11,11 @@ const VehicleForm = () => {
   const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
     mileage: 0, 
     services: []
+<<<<<<< HEAD
     //, expenses: [] 
+=======
+    // , expenses: [] 
+>>>>>>> 28784aba1448ce4d7461c28219f32e556605a955
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -46,6 +50,7 @@ const VehicleForm = () => {
     // });
     console.log('Submitting vehicle data:', vehicleFormData);
     try {
+      vehicleFormData.mileage = Number(vehicleFormData.mileage);
       const response = await AddVehicle({variables: {input: vehicleFormData}});
 
       if (response) {
@@ -118,7 +123,7 @@ const VehicleForm = () => {
           />          
         </div>
         <div className='mileage-input'>
-          <label htmlFor='mileage'>VIN</label>
+          <label htmlFor='mileage'>Mileage</label>
           <input
             type='text'
             placeholder='Current vehicle mileage'

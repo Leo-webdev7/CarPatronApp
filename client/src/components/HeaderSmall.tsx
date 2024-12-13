@@ -11,9 +11,6 @@ const HeaderSmall = () => {
             <a href="/HomePage"><img src={logo}  alt="Car Patron - Vehicle Maintenance Management" className="logoSmall" /></a>
         </div>
         <div>
-            <h1>car patron</h1>
-        </div>
-        <div>
             <button className='backButton'><a href="/HomePage"><img src={leftArrow} alt="" /></a></button>
         </div>
       </div>

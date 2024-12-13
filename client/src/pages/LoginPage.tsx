@@ -1,7 +1,7 @@
 // pages/LoginPage.js
 import '../App.css'; 
-import LoginForm from '../components/LoginForm';
-import Header from '../../../Header';
+import LoginForm from '../components/LoginForm.js';
+import Header from '../components/Header.js';
 
 const LoginPage = () => {
   return (
