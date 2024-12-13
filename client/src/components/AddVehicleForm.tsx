@@ -9,7 +9,7 @@ import type { Vehicle } from '../models/Vehicle';
 const VehicleForm = () => {
   // set initial form state
   const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
-    // mileage: 0, 
+    mileage: 0, 
     services: []
     // , expenses: [] 
   });
@@ -117,8 +117,7 @@ const VehicleForm = () => {
             required
           />          
         </div>
-
-        {/* <div className='mileage-input'>
+        <div className='mileage-input'>
           <label htmlFor='mileage'>VIN</label>
           <input
             type='text'
@@ -127,11 +126,11 @@ const VehicleForm = () => {
             onChange={handleInputChange}
             value={vehicleFormData.mileage || ''}
             required
-          />           */}
-        {/* </div> */}
+          />           
+        </div>
         <button
           disabled={!(vehicleFormData.make && vehicleFormData.car_model && vehicleFormData.year && vehicleFormData.vin 
-            // && vehicleFormData.mileage
+            && vehicleFormData.mileage)}
           type='submit'
           >
           Submit
