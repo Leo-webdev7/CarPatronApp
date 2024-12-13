@@ -8,6 +8,8 @@ return (
   <>
     <div className="add-vehicle-page">
       <HeaderSmall />
+       <img src="../src/assets/icons/vehicle1.svg" alt="profile logo" className="page-img"/>
+       <h1>Add Vehicle</h1>
       <VehicleForm/>
     </div>
   </> 

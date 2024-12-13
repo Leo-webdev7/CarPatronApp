@@ -9,7 +9,7 @@ function ServiceRecords () {
         <div>
         <HeaderSmall />
         <div className="user-profile">
-        <img src={service} alt="service" className="user-profile-img" />
+        <img src={service} alt="service" className="page-img" />
         <AddServiceMain />
         </div>
         </div>
