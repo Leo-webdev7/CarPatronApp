@@ -40,6 +40,7 @@ const router = createBrowserRouter([
         path: '/ProfilePage',
         element: <ProfilePage/>
       }, 
+
        {
          path: '/Reminders',
          element: <Reminders/>
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
          path: '/ServiceRecords',
          element: <ServiceRecords/>
        }, 
+
        {
          path: '/AddServiceForm',
          element: <AddServiceForm/>
@@ -71,4 +73,3 @@ if(rootElement) {
     <RouterProvider router={router} />
   );
 }
-

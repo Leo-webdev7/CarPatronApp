@@ -46,6 +46,7 @@ const VehicleForm = () => {
     // });
     console.log('Submitting vehicle data:', vehicleFormData);
     try {
+      vehicleFormData.mileage = Number(vehicleFormData.mileage);
       const response = await AddVehicle({variables: {input: vehicleFormData}});
 
       if (response) {
@@ -139,5 +140,7 @@ const VehicleForm = () => {
     </div>
   );
 };
+
+  
 
 export default VehicleForm;

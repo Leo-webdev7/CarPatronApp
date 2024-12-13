@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AddServiceForm from './AddServiceForm'; // Adjust path as needed
 import ServiceRecordsTable from './ServiceRecordsTable'; // Adjust path as needed
 import '../App.css';
 
 function AddServiceMain() {
-    const [view, setView] = useState(null); // Keeps track of what to display: null, 'addService', or 'viewRecords'
+    const [view, setView] = useState<null | 'addService' | 'viewRecords'>(null); // Explicitly define the type
 
     return (
         <div>
