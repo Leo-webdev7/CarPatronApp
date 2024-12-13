@@ -11,7 +11,7 @@ const VehicleForm = () => {
   const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
     mileage: 0, 
     services: []
-    // , expenses: [] 
+    , expenses: [] 
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -140,5 +140,7 @@ const VehicleForm = () => {
     </div>
   );
 };
+
+  
 
 export default VehicleForm;
