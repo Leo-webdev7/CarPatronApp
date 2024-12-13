@@ -41,15 +41,3 @@ export const GET_SERVICE = gql`
     }
   }
 `;
-
-export const GET_EXPENSE = gql`
-  query expense {
-    expenses {
-        name
-        date_performed
-        mileage
-        const
-        is_overdue
-    }
-  }
-`;

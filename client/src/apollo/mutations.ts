@@ -49,23 +49,11 @@ export const ADD_SERVICE = gql`
     addService(input: $input) {
           services {
             name
-            date
+            serviceType
+            date_performed
             mileage_performed
             cost
-            is_outdated
-          }
-      }
-    }
-`;
-
-export const ADD_EXPENSE = gql`
-  mutation addExpense($input: ServiceInput!) {
-    addExpense(input: $input) {
-          expenses {
-            name
-            date
-            mileage_performed
-            cost
+            description
             is_outdated
           }
       }
