@@ -60,7 +60,7 @@ const router = createBrowserRouter([
 
        {
          path: '/AddServiceForm',
-         element: <AddServiceForm/>
+         element: <AddServiceForm vehicleVin=""/>
        }, 
     ],
   },

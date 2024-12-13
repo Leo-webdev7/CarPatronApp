@@ -38,7 +38,7 @@ function HomePage () {
     return (
         <div className="welcome-wrap">
             <Header />
-            <body className='mainMenu'>
+            <div className='mainMenu'>
                 <div className="icon-grid">
                     <div>
                         <div className='menuButton'>
@@ -78,7 +78,7 @@ function HomePage () {
                     </div>
                     
                 </div>
-            </body>
+            </div>
         </div>
     )
 }

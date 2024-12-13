@@ -48,6 +48,7 @@ export const ADD_SERVICE = gql`
   mutation addService($input: ServiceInput!) {
     addService(input: $input) {
           services {
+            vin
             name
             serviceType
             date_performed

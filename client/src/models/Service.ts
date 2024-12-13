@@ -1,4 +1,5 @@
 export interface Service {
+  vin: string;
   name: string | null;
   serviceType: 'SERVICE' | 'EXPENSE';
   date_performed: string | null;
