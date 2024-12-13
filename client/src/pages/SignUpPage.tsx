@@ -1,7 +1,7 @@
 // pages/SignupPage.js
 import '../App.css'; 
 import SignUpForm from '../components/SignUpForm.js';
-import Header from '../components/Header.js';
+import Header from '../../../Header.js';
 
 const SignUpPage = () => {
   return (
