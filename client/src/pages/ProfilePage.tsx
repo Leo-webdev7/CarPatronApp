@@ -15,7 +15,8 @@ const ProfilePage = () => {
     <div>
       <HeaderSmall />
       <div className="user-profile">
-        <img src="../src/assets/icons/profile-circle.svg" alt="profile logo" className="user-profile-img"/>
+        <img src="../src/assets/icons/profile-circle.svg" alt="profile logo" className="page-img"/>
+        <h1>Profile</h1>
         <div className='profile-box box'>
           <ul>
             <li><strong>Username:</strong>  {profile.username}</li>

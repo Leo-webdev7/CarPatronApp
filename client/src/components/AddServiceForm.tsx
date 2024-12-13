@@ -57,7 +57,7 @@ const AddServiceForm = () => {
           Something went wrong with your signup!
         </Alert>
         <div>
-          <p className='input-label'>Add Service Record:</p>
+          <p className='input-label'>Add Service Record</p>
         </div>
         <div className='name-input'>
           <label htmlFor='name'>Name of Service</label>
