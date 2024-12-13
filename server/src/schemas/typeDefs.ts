@@ -71,6 +71,7 @@ const typeDefs = `
     getUser(username: String!): User
     getVehicles: [Vehicle]
     getVehicle: Vehicle
+    getServices(vehicleId: String!): [Service]
   }
 
   type Mutation {

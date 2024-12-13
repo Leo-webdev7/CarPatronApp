@@ -17,11 +17,6 @@ const VehicleSchema = new Schema<IVehicle>({
     type: String,
     required: true
   },
-  mileage: {
-    type: Number,
-    required: true,
-    default: 0
-  },
   year: {
     type: String,
     required: true
