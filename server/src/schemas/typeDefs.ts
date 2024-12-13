@@ -51,6 +51,7 @@ const typeDefs = `
   }
 
   input ServiceInput {
+    vin: String!
     name: String!
     serviceType: ServiceType!
     date_performed: String!
@@ -78,7 +79,7 @@ const typeDefs = `
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
     addVehicle(input: VehicleInput!): User
-    addService(vin: String!, input: ServiceInput!): User
+    addService(input: ServiceInput!): User
   }
 
 `;
