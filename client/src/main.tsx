@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import PageTitle from './components/PageTitle';
 import App from './App';
 import HomePage from './pages/HomePage';
 import AddVehicle from './pages/AddVehicle'
@@ -21,41 +21,88 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
     children: [
       {
-        index: true,
-        element: <LoginPage/>
+        index: true,        
+        element: (
+          <>
+            <PageTitle title="Car Patron - Vehicle Maintenance App" />
+            <LoginPage/>
+          </>
+        ),
       },
        {
         path: '/SignUpPage',
-        element: <SignUpPage/>
+        element: (
+          <>
+            <PageTitle title="Sign Up Form - Car Patron" />
+            <SignUpPage/>
+          </>
+        
+        ),
       },
        {
          path: '/HomePage',
-         element: <HomePage />
+         element: (
+          <>
+            <PageTitle title="Home Page - Car Patron" />
+            <HomePage/>
+          </>        
+        ), 
        },
       {
         path: '/AddVehicle',
-        element: <AddVehicle/>
+        element: 
+         (
+          <>
+            <PageTitle title="Add Vehicle - Car Patron" />
+            <AddVehicle/>
+          </>        
+        ),
       },
       {
         path: '/ProfilePage',
-        element: <ProfilePage/>
+        element: (
+          <>
+            <PageTitle title="User Profile - Car Patron" />
+            <ProfilePage/>
+          </>        
+        ),
       }, 
 
        {
          path: '/Reminders',
-         element: <Reminders/>
+         element: (
+          <>
+            <PageTitle title="Reminders - Car Patron" />
+            <Reminders/>
+          </>        
+        ),
        },
         {
          path: '/VehicleDetails',
-         element: <VehicleDetails/>
+         element: (
+          <>
+            <PageTitle title="Vehicle Details - Car Patron" />
+            <VehicleDetails/>
+          </>        
+        ),
        },
        {
          path: '/VehicleExpenses',
-         element: <VehicleExpenses/>
+         element: (
+          <>
+            <PageTitle title="Vehicle Expenses - Car Patron" />
+            <VehicleExpenses/>
+          </>        
+        ),
        },
        {
          path: '/ServiceRecords',
-         element: <ServiceRecords/>
+         element: (
+          <>
+            <PageTitle title="Service Records - Car Patron" />
+            <ServiceRecords/>
+          </>        
+        ),
        }, 
 
        {
