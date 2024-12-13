@@ -20,7 +20,7 @@ const ProfilePage = () => {
           <ul>
             <li><strong>Username:</strong>  {profile.username}</li>
             <li><strong>Email:</strong>  {profile.email}</li>
-            {/* <li><strong>Vehicle Type:</strong> {profile.vehicle.model}</li> */}
+            {/* <li><strong>Vehicle Type:</strong> {profile.vehicles.make }</li> */}
             <li><strong>Phone Number:</strong> {profile.phonenumber}</li>
           </ul>
         </div>

@@ -261,7 +261,26 @@ p {
   margin-bottom: 10px;
 }
 
+/* -       Vehicle Details  -------- */
 
+.vehicle-profile {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.number-of-vehicles {
+  display:block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.vehicle-profile select {
+  margin-bottom: 20px;
+  padding: 5px;
+}
 
 /* -       Footer Help Line -------- */
 footer {
