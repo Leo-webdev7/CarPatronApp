@@ -60,7 +60,7 @@ function AddServiceMain() {
                     </div>
                 )}
                 {view === 'addService' && <AddServiceForm vehicleVin={selectedVehicle}/>}
-                {view === 'viewRecords' && <ServiceRecordsTable />}
+                {view === 'viewRecords' && <ServiceRecordsTable vehicleVin={selectedVehicle}/>}
             </div>
         </div>
     );

@@ -31,12 +31,14 @@ export const GET_VEHICLE = gql`
 `;
 
 export const GET_SERVICE = gql`
-  query service {
-    services {
+  query getServices($vin: String!) {
+    getServices(vin: $vin) {
         name
+        serviceType
         date_performed
-        mileage
-        const
+        mileage_performed
+        cost
+        description
         is_overdue
     }
   }
