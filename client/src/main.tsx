@@ -107,12 +107,7 @@ const router = createBrowserRouter([
 
        {
          path: '/AddServiceForm',
-         element:  (
-          <>
-            <PageTitle title="Add Service - Car Patron" />
-            <AddServiceForm/>
-          </>        
-        ),
+         element: <AddServiceForm vehicleVin=""/>
        }, 
     ],
   },
