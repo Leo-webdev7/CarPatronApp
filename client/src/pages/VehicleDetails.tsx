@@ -23,17 +23,17 @@ const VehicleDetails = () => {
       <HeaderSmall />
       <div className="vehicle-details">
         <img src="../src/assets/vehicle-profile.png" alt="profile logo" className="vehicle-details-img"/>
-        <div className='profile-box box'>
+        <div className='vehicle-profile box'>
+          <div className="number-of-vehicles">
           {userData.vehicles.length ? (
-              `Viewing ${userData.vehicles.length} saved ${
-                userData.vehicles.length === 1 ? 'vehicle' : 'vehicles'
-              }:`
+              `${userData.vehicles.length} Vehicle(s) Saved`
             ) : (
               <span>
                 You have no saved vehicles!{' '}
                 <a href="/AddVehicle">Add a Vehicle</a>
               </span>
             )}
+            </div>
             <select value={selectedValue} onChange={handleChange}>
               <option value="">Select an option</option>
               {userData.vehicles.map((vehicle) => (

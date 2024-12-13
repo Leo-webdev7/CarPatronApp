@@ -16,7 +16,7 @@ interface Vehicle {
     vin: string;
     year: string;
     make: string;
-    model: string;
+    car_model: string;
     services: Service[];
 }
 
@@ -25,7 +25,7 @@ interface AddVehicleArgs {
         vin: string;
         year: string;
         make: string;
-        model: string;
+        car_model: string;
     }
 }
 
@@ -140,8 +140,8 @@ const resolvers = {
 
         addVehicle: async (_parent: any, { input }: AddVehicleArgs, context: Context): Promise<User | null> => {
             if (context.user && input) {
-                const { vin, year, make, model } = input;
-                const newVehicle = { vin, year, make, model };
+                const { vin, year, make, car_model } = input;
+                const newVehicle = { vin, year, make, car_model };
 
                 return await User.findOneAndUpdate(
                     { _id: context.user._id },
