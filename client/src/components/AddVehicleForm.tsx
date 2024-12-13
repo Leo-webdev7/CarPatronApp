@@ -11,11 +11,7 @@ const VehicleForm = () => {
   const [vehicleFormData, setVehicleFormData] = useState<Vehicle>({ make: '', car_model: '', year: '', vin: '', 
     mileage: 0, 
     services: []
-<<<<<<< HEAD
-    //, expenses: [] 
-=======
     // , expenses: [] 
->>>>>>> 28784aba1448ce4d7461c28219f32e556605a955
   });
   // set state for form validation
   const [validated] = useState(false);
