@@ -21,7 +21,7 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
     mileage_performed: 0,
     cost: 0,
     description: '',
-    is_outdated: false,
+    is_overdue: false,
   });
 
   const [validated, setValidated] = useState(false);
