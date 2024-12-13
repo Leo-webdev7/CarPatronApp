@@ -118,7 +118,7 @@ const VehicleForm = () => {
           />          
         </div>
         <div className='mileage-input'>
-          <label htmlFor='mileage'>VIN</label>
+          <label htmlFor='mileage'>Mileage</label>
           <input
             type='text'
             placeholder='Current vehicle mileage'
