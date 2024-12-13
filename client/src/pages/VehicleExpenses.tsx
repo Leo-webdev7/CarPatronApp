@@ -1,7 +1,12 @@
+import {useEffect} from 'react';
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 
 function VehicleExpenses() {
+    useEffect(() => {
+        document.body.classList.add('custom-body');
+    }, []);
+
     return (
         <div>
         <HeaderSmall />

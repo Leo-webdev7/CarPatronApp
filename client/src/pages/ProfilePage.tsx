@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 // import { useParams } from 'react-router-dom';
 import { GET_ME } from '../apollo/queries';
@@ -8,8 +9,14 @@ const ProfilePage = () => {
   const { loading, data } = useQuery(GET_ME);
 
   const profile = data?.me || {};
+
+  useEffect(() => {
+    document.body.classList.add('custom-body');
+  }, []);
+
   if (loading) {
     return <div>Loading...</div>;
+
   }
   return (
     <div>

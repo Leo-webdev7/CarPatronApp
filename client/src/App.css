@@ -910,6 +910,6 @@ div.headerSmall {
   background-color: #000000;
 }
 
-body {
-  background-color:#ffffff;
+.custom-body {
+      background-image: linear-gradient(120deg, #6f98fa 0%, #fb696e 100%);
 }

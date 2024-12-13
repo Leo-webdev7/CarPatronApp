@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 // import { Link } from 'react-router-dom';
 import {useState} from 'react';
@@ -10,6 +11,10 @@ const VehicleDetails = () => {
   const { loading, data } = useQuery(GET_ME);
 
   const [selectedValue, setSelectedValue] = useState<string>('');
+
+  useEffect(() => {
+    document.body.classList.add('custom-body');
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
