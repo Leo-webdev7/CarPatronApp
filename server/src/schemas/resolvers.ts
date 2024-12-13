@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import Vehicle from '../models/Vehicle.js'
 import Service from '../models/Service.js'
+import { IService } from '../models/Service.js';
 import { signToken, AuthenticationError } from '../services/auth.js';
 
 interface User {
@@ -95,6 +96,26 @@ const resolvers = {
                 return current_user?.vehicles as unknown as Vehicle[] || null; // casts to unknown then Vehicle[] to agree on types, a bit sketchy
             }
             throw new AuthenticationError('You must be logged in to view this information.');
+        },
+        
+        getServices: async (_parent: any, { vehicleId }: { vehicleId: string }, context: Context): Promise<IService[] | null> => {
+            try {
+                if (context.user) {
+                    // Find the user and get the specific vehicle by its _id
+                    const user = await User.findOne(
+                        { _id: context.user._id, 'vehicles._id': vehicleId },
+                        { 'vehicles.$': 1 } // Only include the matched vehicle
+                    );
+
+                    // Return the services array if the vehicle is found
+                    const vehicle = user?.vehicles[0];
+                    return vehicle?.services || [];
+                }
+                throw new Error("User not authenticated");
+            } catch (err) {
+                console.error("Error fetching services:", err);
+                throw new Error("Could not retrieve services");
+            }
         },
         // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
 
