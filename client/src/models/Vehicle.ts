@@ -1,4 +1,3 @@
-// import type { Expense } from './Expense';
 import type { Service } from './Service';
 export interface Vehicle {
   make: string | null;
@@ -7,5 +6,4 @@ export interface Vehicle {
   vin: string | null;
   mileage: number;
   services: Service[];
-  // expenses: Expense[];
 }
