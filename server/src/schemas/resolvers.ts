@@ -40,17 +40,19 @@ interface Service {
     is_overdue: boolean;
 }
 
-// interface AddServiceArgs {
-//     input: {
-//         vin: string;
-//         name: string;
-//         date_performed: string;
-//         mileage_performed: number;
-//         cost: number;
-//         description: string;
-//         is_overdue: boolean;
-//     }
-// }
+interface AddServiceArgs {
+    input: {
+        vin: string;
+        // serviceType is an enum; its either 'SERVICE' or 'EXPENSE'
+        serviceType: 'SERVICE' | 'EXPENSE';
+        name: string;
+        date_performed: string;
+        mileage_performed: number;
+        cost: number;
+        description: string;
+        is_overdue: boolean;
+    }
+}
 
 interface AddUserArgs {
   input:{
@@ -197,19 +199,23 @@ const resolvers = {
 
         // },
 
-        // addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
-        //     if (context.user && input) {
-        //         const { vin, name, date_performed, mileage_performed, cost, description, is_overdue } = input;
-        //         const newService = { name, date_performed, mileage_performed, cost, description, is_overdue };
+        addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, name, serviceType, date_performed, mileage_performed, cost, description, is_overdue } = input;
+                const newService = { name, serviceType, date_performed, mileage_performed, cost, description, is_overdue };
 
-        //         return await User.findOneAndUpdate(
-        //             { _id: context.user._id, 'vehicles.vin': { vin } },
-        //             { $addToSet: { 'vehicles.services': newService } },
-        //             { new: true }
-        //         );
-        //     };
-        //     throw new Error("Failed to add service");
-        // },
+                if (!['SERVICE', 'EXPENSE'].includes(serviceType)) {
+                    throw new Error('Invalid serviceType');
+                }
+
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id, 'vehicles.vin': { vin } },
+                    { $addToSet: { 'vehicles.services': newService } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to add service");
+        },
 
         // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
 
