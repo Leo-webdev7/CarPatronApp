@@ -932,3 +932,49 @@ div.headerSmall {
   box-shadow: #007bff 0px 0px 12px;
 }
 
+.user-profile-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.signup-wrap {
+  margin-top: 40px; 
+  background-color: #000000;
+  border-radius: 40px;
+}
+ .login-wrap {
+  margin-top: 40px; 
+  background-color: #000000;
+  border-radius: 40px;
+}
+.profile-wrapper {
+  padding: 20px;
+  background-color: #000;
+  border-radius: 40px; /* Example border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  margin-top: 60px;
+  justify-content: center;
+  align-items: center;
+  width:25%;
+}
+img.user-profile-img {
+ margin-top: 40px;
+}
+.profile-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.logoutButton {
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: #c7aff8;
+  border-radius: 20px;
+  text-shadow: #007bff 0px 0px 10px;
+}

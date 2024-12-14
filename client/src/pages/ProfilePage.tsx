@@ -23,6 +23,7 @@ const ProfilePage = () => {
       <HeaderSmall />
       <div className="user-profile">
         <img src="../src/assets/user-profile.png" alt="profile logo" className="user-profile-img"/>
+        <div className="profile-wrapper">
         <div className='profile-box box'>
           <ul>
             <li><strong>Username:</strong>  {profile.username}</li>
@@ -30,6 +31,7 @@ const ProfilePage = () => {
             {/* <li><strong>Vehicle Type:</strong> {profile.vehicles.make }</li> */}
             <li><strong>Phone Number:</strong> {profile.phonenumber}</li>
           </ul>
+          </div>
         </div>
       </div>
     </div>
