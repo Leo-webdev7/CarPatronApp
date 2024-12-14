@@ -16,7 +16,22 @@ const ServiceRecordsTable = ({ vehicleVin }: AddServiceFormProps) => {
 
     const services = data?.getServices || [];
 
-    console.log(new Date(services[0].date_performed * 1000));
+    const formatDate = (date: number) => {
+        const parsedDate = new Date(date * 1); 
+        if (isNaN(parsedDate.getTime())) {
+            return 'Invalid Date';
+        }
+
+        
+        const formattedDate = parsedDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short', 
+            day: 'numeric',
+            timeZone: 'UTC', 
+        });
+
+        return formattedDate; 
+    };
 
     return (
         <div>
@@ -34,7 +49,7 @@ const ServiceRecordsTable = ({ vehicleVin }: AddServiceFormProps) => {
                     <tbody>
                         {services.map((service: any, index: number) => (
                             <tr key={index}>
-                                <td id="date">{service.date_performed}</td>
+                                <td id="date">{formatDate(service.date_performed)}</td>
                                 <td id="cost">{service.cost}</td>
                                 <td id="mileage">{service.mileage_performed}</td>
                                 <td id="title">{service.name}</td>
