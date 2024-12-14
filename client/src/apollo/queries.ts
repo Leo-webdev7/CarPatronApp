@@ -43,3 +43,17 @@ export const GET_SERVICE = gql`
     }
   }
 `;
+
+export const GET_EXPENSES = gql`
+  query getExpenses($vin: String!) {
+    getExpenses(vin: $vin) {
+        name
+        serviceType
+        date_performed
+        mileage_performed
+        cost
+        description
+        is_overdue
+    }
+  }
+`;
