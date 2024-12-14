@@ -73,6 +73,7 @@ const typeDefs = `
     getVehicles: [Vehicle]
     getVehicle: Vehicle
     getServices(vin: String!): [Service]
+    getExpenses(vin: String!): [Service]
   }
 
   type Mutation {

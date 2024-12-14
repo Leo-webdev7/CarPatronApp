@@ -109,7 +109,33 @@ const resolvers = {
 
                     // Return the services array if the vehicle is found
                     const vehicle = user?.vehicles[0];
-                    return vehicle?.services || [];
+                    const services = vehicle?.services || [];
+
+                    // Filter services based on serviceType 'SERVICE'
+                    return services.filter(service => service.serviceType === 'SERVICE');
+                }
+                throw new Error("User not authenticated");
+            } catch (err) {
+                console.error("Error fetching services:", err);
+                throw new Error("Could not retrieve services");
+            }
+        },
+
+        getExpenses: async (_parent: any, { vin }: { vin: string }, context: Context): Promise<IService[] | null> => {
+            try {
+                if (context.user) {
+                    // Find the user and get the specific vehicle by its _id
+                    const user = await User.findOne(
+                        { _id: context.user._id, 'vehicles.vin': vin },
+                        { 'vehicles.$': 1 } // Only include the matched vehicle
+                    );
+
+                    // Return the services array if the vehicle is found
+                    const vehicle = user?.vehicles[0];
+                    const services = vehicle?.services || [];
+
+                    // Filter services based on serviceType 'SERVICE'
+                    return services.filter(service => service.serviceType === 'EXPENSE');
                 }
                 throw new Error("User not authenticated");
             } catch (err) {
