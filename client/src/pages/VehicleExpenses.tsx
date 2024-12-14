@@ -46,7 +46,7 @@ const VehicleExpenses = () => {
     return (
         <div>
             <HeaderSmall />
-
+            <img src="../assets/icons/money.svg" alt="money icon" className="page-img"/>
             <div className="addService-wrap">
                 <label htmlFor="vehicleSelect">Select Vehicle: </label>
                 <select
