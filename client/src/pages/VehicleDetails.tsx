@@ -23,7 +23,7 @@ const VehicleDetails = () => {
     <div>
       <HeaderSmall />
       <div className="vehicle-details">
-        <img src="../src/assets/icons/vehicle.svg" alt="vehicle icon" className="page-img"/>
+        <img src="../assets/icons/vehicle.svg" alt="vehicle icon" className="page-img"/>
         <h1>Vehicle Details</h1>
         <div className='vehicle-profile box'>
           <div className="number-of-vehicles">
