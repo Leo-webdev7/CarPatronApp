@@ -913,3 +913,22 @@ div.headerSmall {
 .custom-body {
       background-image: linear-gradient(120deg, #6f98fa 0%, #fb696e 100%);
 }
+
+.reminders-box {
+  background-color: #000000;
+  border-radius: 40px;
+}
+.reminders-box h2{
+  color: #ffffff;
+  text-shadow: #007bff 0px 0px 5px;
+}
+.input-label {
+  color: #ffffff;
+  text-shadow: #007bff 0px 0px 8px;
+
+}
+.saveButton {
+  background-color: #c7aff8;
+  box-shadow: #007bff 0px 0px 12px;
+}
+
