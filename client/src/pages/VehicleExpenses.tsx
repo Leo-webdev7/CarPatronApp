@@ -1,6 +1,6 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
-// import { GET_EXPENSES } from '../apollo/queries';
+import { GET_EXPENSES } from '../apollo/queries';
 import { useQuery } from '@apollo/client';
 
 interface AddServiceFormProps {
@@ -8,20 +8,20 @@ interface AddServiceFormProps {
 }
 
 const VehicleExpenses = ({ vehicleVin }: AddServiceFormProps) => {
-    // const { loading, error, data } = useQuery(GET_EXPENSES, {
-    //     variables: { vin: vehicleVin }, 
-    // });
+    const { loading, error, data } = useQuery(GET_EXPENSES, {
+        variables: { vin: vehicleVin }, 
+    });
 
-    // if (loading) return <p>Loading services...</p>;
-    // if (error) return <p>Error loading services: {error.message}</p>;
+    if (loading) return <p>Loading services...</p>;
+    if (error) return <p>Error loading services: {error.message}</p>;
 
-    // const expenses = data?.getExpenses || [];
+    const expenses = data?.getExpenses || [];
 
-    // console.log(new Date(expenses[0].date_performed * 1000));
+    console.log(new Date(expenses[0].date_performed * 1000));
 
     return (
         <div>
-            {/* <HeaderSmall />
+            <HeaderSmall />
             <div className="income-source">
                 <table>
                     <thead>
@@ -45,7 +45,7 @@ const VehicleExpenses = ({ vehicleVin }: AddServiceFormProps) => {
                         ))}
                     </tbody>
                 </table>
-            </div> */}
+            </div>
         </div>
     );
 };
