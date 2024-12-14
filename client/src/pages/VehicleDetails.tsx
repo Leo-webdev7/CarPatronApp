@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { GET_ME } from '../apollo/queries';
 import HeaderSmall from '../components/HeaderSmall';
 import type { User } from '../models/User';
+import vehicle from '../assets/icons/vehicle.svg';
 
 const VehicleDetails = () => {
   const { loading, data } = useQuery(GET_ME);
@@ -23,7 +24,7 @@ const VehicleDetails = () => {
     <div>
       <HeaderSmall />
       <div className="vehicle-details">
-        <img src="../assets/icons/vehicle.svg" alt="vehicle icon" className="page-img"/>
+        <img src={vehicle} alt="vehicle icon" className="page-img"/>
         <h1>Vehicle Details</h1>
         <div className='vehicle-profile box'>
           <div className="number-of-vehicles">

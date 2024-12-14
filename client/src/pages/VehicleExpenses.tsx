@@ -3,7 +3,7 @@ import HeaderSmall from '../components/HeaderSmall';
 import { GET_ME, GET_EXPENSES } from '../apollo/queries';
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
-
+import moneyIcon from '../assets/icons/money.svg';
 const VehicleExpenses = () => {
     const [selectedVehicle, setSelectedVehicle] = useState<string>('');
 
@@ -46,7 +46,7 @@ const VehicleExpenses = () => {
     return (
         <div>
             <HeaderSmall />
-            <img src="../assets/icons/money.svg" alt="money icon" className="page-img"/>
+            <img src={moneyIcon} alt="money icon" className="page-img"/>
             <div className="addService-wrap">
                 <label htmlFor="vehicleSelect">Select Vehicle: </label>
                 <select
