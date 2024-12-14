@@ -1,78 +1,109 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
-import { GET_SERVICE } from '../apollo/queries';
+import { GET_ME, GET_EXPENSES } from '../apollo/queries';
 import { useQuery } from '@apollo/client';
+import { useState } from 'react';
 
-interface AddServiceFormProps {
-    vehicleVin: string;
-}
+const VehicleExpenses = () => {
+    const [selectedVehicle, setSelectedVehicle] = useState<string>('');
 
-const VehicleExpenses = ({ vehicleVin }: AddServiceFormProps) => {
-    const { loading, error, data } = useQuery(GET_SERVICE, {
-        variables: { vin: vehicleVin }, 
+    // Query to fetch user vehicles
+    const { loading: loadingVehicles, error: errorVehicles, data: userData } = useQuery(GET_ME);
+
+    // Query to fetch expenses for the selected vehicle
+    const { loading: loadingExpenses, error: errorExpenses, data: expenseData } = useQuery(GET_EXPENSES, {
+        variables: { vin: selectedVehicle },
+        skip: !selectedVehicle, // Skip query if no vehicle is selected
     });
 
-    if (loading) return <p>Loading services...</p>;
-    if (error) return <p>Error loading services: {error.message}</p>;
+    if (loadingVehicles) return <p>Loading vehicles...</p>;
+    if (errorVehicles) return <p>Error loading vehicles: {errorVehicles.message}</p>;
 
-    const expenses = data?.getExpenses || [];
+    const vehicles = userData?.me?.vehicles || [];
+    const expenses = expenseData?.getExpenses || [];
 
-    console.log(new Date(expenses[0].date_performed * 1000));
+    const handleVehicleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedVehicle(event.target.value);
+    };
+
+    const formatDate = (date: number) => {
+        const parsedDate = new Date(date * 1); 
+        if (isNaN(parsedDate.getTime())) {
+            return 'Invalid Date';
+        }
+
+        
+        const formattedDate = parsedDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short', 
+            day: 'numeric',
+            timeZone: 'UTC', 
+        });
+
+        return formattedDate; 
+    };
 
     return (
         <div>
             <HeaderSmall />
-            <div className="income-source">
-                <table>
-                    <thead>
-                        <tr className="table-columns">
-                            <th>Date last serviced:</th>
-                            <th>Cost $:</th>
-                            <th>Mileage:</th>
-                            <th>Title:</th>
-                            <th>Description:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {expenses.map((expense: any, index: number) => (
-                            <tr key={index}>
-                                <td id="date">{expense.date_performed}</td>
-                                <td id="cost">{expense.cost}</td>
-                                <td id="mileage">{expense.mileage_performed}</td>
-                                <td id="title">{expense.name}</td>
-                                <td id="description">{expense.description}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+
+            <div className="addService-wrap">
+                <label htmlFor="vehicleSelect">Select Vehicle: </label>
+                <select
+                    id="vehicleSelect"
+                    className="service-select"
+                    value={selectedVehicle}
+                    onChange={handleVehicleChange}
+                >
+                    <option value="">-- Select a Vehicle --</option>
+                    {vehicles.length > 0 ? (
+                        vehicles.map((vehicle: any) => (
+                            <option key={vehicle.vin} value={vehicle.vin}>
+                                {`${vehicle.vin} - ${vehicle.year} ${vehicle.make} ${vehicle.car_model}`}
+                            </option>
+                        ))
+                    ) : (
+                        <option disabled>No vehicles available</option>
+                    )}
+                </select>
             </div>
+
+            {selectedVehicle && (
+                <div className="income-source">
+                    {loadingExpenses ? (
+                        <p>Loading expenses...</p>
+                    ) : errorExpenses ? (
+                        <p>Error loading expenses: {errorExpenses.message}</p>
+                    ) : expenses.length > 0 ? (
+                        <table>
+                            <thead>
+                                <tr className="table-columns">
+                                    <th>Date Last Serviced</th>
+                                    <th>Cost ($)</th>
+                                    <th>Mileage</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {expenses.map((expense: any, index: number) => (
+                                    <tr key={index}>
+                                        <td id='date'>{formatDate(expense.date_performed)}</td>
+                                        <td id='cost'>{expense.cost}</td>
+                                        <td id='mileage'>{expense.mileage_performed}</td>
+                                        <td id='title'>{expense.name}</td>
+                                        <td id='description'>{expense.description}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <p>No expenses found for this vehicle.</p>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
-/* function VehicleExpenses() {
-    return (
-        <div>
-        <HeaderSmall />
-            <div className="income-source">
-                <table>
-                    <tr className="table-columns">
-                        <th>Date last serviced:</th>
-                        <th>Cost $:</th>
-                        <th>Mileage:</th>
-                        <th>Title:</th>
-                        <th>Description:</th>
-                    </tr>
-                    <tr>
-                        <th id="date">24.04.2024</th>
-                        <th id="cost">250</th>
-                        <th id="mileage">65000</th>
-                        <th id="title">Breaking pads</th>
-                        <th id="description">Breaking pads replaced</th>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    )
-} */
 
 export default VehicleExpenses;

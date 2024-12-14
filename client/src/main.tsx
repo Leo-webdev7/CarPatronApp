@@ -91,7 +91,7 @@ const router = createBrowserRouter([
          element: (
           <>
             <PageTitle title="Vehicle Expenses - Car Patron" />
-            <VehicleExpenses vehicleVin=''/>
+            <VehicleExpenses/>
           </>        
         ),
        },

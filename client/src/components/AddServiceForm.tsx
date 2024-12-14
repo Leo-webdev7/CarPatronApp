@@ -10,9 +10,7 @@ interface AddServiceFormProps {
   vehicleVin: string;
 }
 
-
 const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
-  // Set initial form state
   const [serviceFormData, setServiceFormData] = useState<Service>({
     vin: vehicleVin,
     name: '',
@@ -29,7 +27,6 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
   const [addService] = useMutation(ADD_SERVICE);
   const navigate = useNavigate();
 
-  // Handle input changes for text inputs
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setServiceFormData((prevData) => ({
@@ -38,7 +35,6 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
     }));
   };
 
-  // Handle select input changes for service type
   const handleServiceTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setServiceFormData((prevData) => ({
       ...prevData,
@@ -46,19 +42,18 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
     }));
   };
 
-  // Format and validate the data before submission
   const prepareFormData = () => {
-  const formattedDate = serviceFormData.date_performed
-    ? new Date(serviceFormData.date_performed).toISOString().split('T')[0]
-    : null; // or you can provide a default date if null is not acceptable
+    const formattedDate = serviceFormData.date_performed
+      ? new Date(serviceFormData.date_performed).toISOString().split('T')[0]
+      : null;
 
-  return {
-    ...serviceFormData,
-    mileage_performed: Number(serviceFormData.mileage_performed),
-    cost: parseFloat(serviceFormData.cost.toString().replace(/[^0-9.]/g, '')),
-    date_performed: formattedDate,
+    return {
+      ...serviceFormData,
+      mileage_performed: Number(serviceFormData.mileage_performed),
+      cost: parseFloat(serviceFormData.cost.toString().replace(/[^0-9.]/g, '')),
+      date_performed: formattedDate,
+    };
   };
-}
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -76,7 +71,7 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
 
       if (response) {
         console.log('Service Record Added successfully');
-        navigate('/ServiceRecords');
+        navigate('/HomePage'); // Redirect after successful submission
       } else {
         console.error('Failed to add Service Record');
       }
@@ -89,7 +84,6 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
   return (
     <div className="signup-wrap">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* Show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant="danger">
           Something went wrong while adding the service record!
         </Alert>
