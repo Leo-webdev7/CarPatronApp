@@ -1,6 +1,6 @@
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
-import { GET_EXPENSES } from '../apollo/queries';
+import { GET_SERVICE } from '../apollo/queries';
 import { useQuery } from '@apollo/client';
 
 interface AddServiceFormProps {
@@ -8,7 +8,7 @@ interface AddServiceFormProps {
 }
 
 const VehicleExpenses = ({ vehicleVin }: AddServiceFormProps) => {
-    const { loading, error, data } = useQuery(GET_EXPENSES, {
+    const { loading, error, data } = useQuery(GET_SERVICE, {
         variables: { vin: vehicleVin }, 
     });
 
