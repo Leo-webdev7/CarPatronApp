@@ -174,12 +174,12 @@ const resolvers = {
         login: async (_parent: any, {username, password}: {username: string, password: string}) => {
             const user = await User.findOne({username});
             if (!user) {
-                throw new AuthenticationError('Cound not authenticate user');
+                throw new AuthenticationError('Could not authenticate user');
             }
 
             const correctPassword = await user.isCorrectPassword(password);
             if (!correctPassword) {
-                throw new AuthenticationError('Cound not authenticate user');
+                throw new AuthenticationError('Could not authenticate user');
                 // removing this error for now because passwords aren't being hashed in seeds
             }
 

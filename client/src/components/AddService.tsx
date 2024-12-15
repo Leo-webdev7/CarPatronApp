@@ -36,6 +36,7 @@ function AddServiceMain() {
 
     return (
         <div>
+            <h1>Service Records</h1>
             <div className="addService-wrap">
                 <label htmlFor="vehicleSelect">Select Vehicle: </label>
                 <select

@@ -42,37 +42,6 @@ body {
   margin: 0 auto;
 }
 
-/* nav.updated-nav-tk {
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto 30px;
-  padding: 0;
-}
-
-nav.updated-nav-tk ul {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-nav.updated-nav-tk li {
-  display: inline-block;
-}
-
-nav.updated-nav-tk a {
-  color: #681e67; 
-  padding: 10px;
-  font-size: 20px;
-  border-radius: 15px;
-}
-
-nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
-  color: #681e67;
-  background: #abdad9;
-} */
-
 /* -       Login Page & Signup Page-------- */
 
 .login-page, .signup-page {
@@ -83,10 +52,6 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   text-align:center;
   padding-bottom: 100px;
 }
-
-/* .signup-page {
-  background: linear-gradient(180deg, #FFFFFF 70.5%, #FB86A4 100%);
-} */
 
 .login-page h1, .signup-page h1 {
   color: #84BFF7;
@@ -110,7 +75,7 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
 }
 
 .login-wrap input, .signup-wrap input, .login-wrap select, 
-.signup-wrap select {
+.signup-wrap select, .addService-wrap input, .addService-wrap select {
   color: #000;
   width: 100%;
   margin-bottom: 1em;
@@ -118,7 +83,7 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   padding: 10px;
   border: 1px solid #000;
 }
-.login-wrap button[type=submit], .signup-wrap button[type=submit] {
+.login-wrap button[type=submit], .signup-wrap button[type=submit], .addService-wrap button[type=submit] {
   width: 125px;
   text-transform: uppercase;
   color: #fff;
@@ -234,7 +199,7 @@ p {
 }
 
 .saveButton {
-    width: 125px;
+    width: 250px;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
