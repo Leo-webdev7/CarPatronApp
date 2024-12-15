@@ -20,6 +20,7 @@ html, body,
   width: 100%;
   margin: 0;
   padding: 0;
+  min-width: 320px;
 }
 
 /* .App {
@@ -137,7 +138,7 @@ header {
 }
 
 header .logoutButton {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   font-size: 1em;
@@ -467,17 +468,21 @@ ul.vehicle-details {
     }
 
 .icon-grid {
-      width: 30%;
-      height: 50%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 20px;
-      background: white;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  gap:10px;
+  padding: 10px;
+  background: rgb(230, 228, 228);
+  border: 2px solid #000000;
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: #000000;
+  margin: 0 auto;  
+}
 
 .menuIcon {
   margin: 5px;
@@ -498,24 +503,26 @@ ul.vehicle-details {
     }
 
 .menuButton {
-      height: 150px;
-      width: 100px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0px;
-      background-color: none;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
-      margin-top: 20px;
-    }
+  height: auto;
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  margin-top: 20px;
+  box-shadow: #000 0px 0px 10px;
+  background-color:#c7aff8; 
+}    
 
 .menuButton:hover {
       background-color: #8898aa;
@@ -541,7 +548,7 @@ ul.vehicle-details {
 /* General container styling */
 .income-source {
     margin: 20px auto;
-    padding: 20px;
+    padding: 0;
     max-width: 800px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -584,66 +591,62 @@ tr:nth-child(odd) {
     background-color: #fff;
 }
 
+/* Mobile friendly services/expenses table */
+
+.income-source ul {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 600px;
+}
+
+.income-source ul li {
+  text-align: center;
+  padding: 10px;
+  width: 20%;
+  border: 1px solid #CCC;
+}
+
+.income-source ul li:nth-child(even) {
+    background-color: #c7def3;
+}
+
+.income-source ul li:nth-child(odd) {
+    background-color: #fff;
+}
+
+.income-source ul li strong {
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  padding-bottom:2px;
+  margin-bottom: 5px;
+}
+
 /* Specific column styling */
 #date {
+    color: #333;
+    /* font-weight: bold; */
+}
+
+#cost {
+    color: #333;
+}
+
+#mileage {
     color: #333;
     font-weight: bold;
 }
 
-#cost {
-    color: #007bff;
-}
-
-#mileage {
-    color: #28a745;
-    font-weight: bold;
-}
-
 #title {
-    color: #6c757d;
+    color: #333;
 }
 
 #description {
-  color: #7f3785;
-}
-
-/* Mobile responsiveness */
-@media screen and (max-width: 600px) {
-
-    .income-source {
-        padding: 10px;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-}
-.icon-grid {
-  width: 75%;
-  height: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:10px;
-  padding: 10px;
-  background: rgb(230, 228, 228);
-  border: 2px solid #000000;
-  border-radius: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  background-color: #000000;
-  margin-left: 0;
-  margin-right: 0;
-  
-}
-
-.menuButton {
-  box-shadow: #000 0px 0px 10px;
-  background-color:#c7aff8; 
-  padding-bottom: 10px;
-  box-shadow: #007bff 0px 0px 12px;
+  color: #333;
 }
 
 
@@ -653,7 +656,6 @@ tr:nth-child(odd) {
   width: 100%;
   padding: 5px;
 }
-
 
 .backButton img {
   background-color: #c7aff8;
@@ -693,7 +695,6 @@ body {
   min-width: 300px;
   background: #E7E5E5;
   padding: 20px;
-  display: flex;
   margin: 0 auto 20px;
   border: 2px solid #3B3535;
 }
@@ -701,4 +702,34 @@ body {
 .service-select {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+    
+    .income-source {
+        padding: 10px;
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .income-source ul {
+      flex-flow: column;
+        min-width: 240px;
+    }
+    .income-source ul li {width: 100%;}
+}
+@media screen and (max-width: 400px) {
+  
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }

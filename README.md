@@ -11,6 +11,7 @@ Car Patron is a vehicle maintenanace application that allows users to log their 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Questions](#questions)
+- [Credits](#credits)
 
 ## Installation<a id="installation"></a>
 
