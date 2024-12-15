@@ -1,6 +1,6 @@
 # Car Patron - Vehicle Maintenance Application
 
-<img src="../main/screenshots/car-patron-screenshot-1.png" alt="Screenshot of Candidate Search page" width="100%" height="auto">
+<img src="../main/client/src/assets/logo/car-patron-logo.png" alt="Screenshot of Candidate Search page" width="100%" height="auto">
 
 ## Description
 

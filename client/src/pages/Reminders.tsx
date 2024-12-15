@@ -29,7 +29,7 @@ function Reminders() {
       <HeaderSmall />
       <div className="user-profile">
         <img src={clock} alt="clock" className="page-img" />
-        <h1>Reminders:</h1>
+        <h1>Reminders</h1>
         <div className="reminders-box box">         
           <div className="dateInput">
             <p className="input-label">Choose a date:</p>
