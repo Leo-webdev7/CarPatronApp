@@ -734,3 +734,31 @@ body {
   }
 
 }
+
+@media screen and (max-width: 361px) {
+  .menuButton {
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menuButtonText {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .menuButton {
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menuButtonText {
+    font-size: 9px;
+  }
+
+  .icon-grid {
+    height: 60%;
+  }
+}
