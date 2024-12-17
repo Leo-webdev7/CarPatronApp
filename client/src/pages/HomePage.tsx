@@ -38,7 +38,7 @@ function HomePage () {
     return (
         <div className="welcome-wrap">
             <Header />
-            <body className='mainMenu'>
+            <div className='mainMenu'>
                 <div className="icon-grid">
                     <div>
                         <div className='menuButton'>
@@ -54,7 +54,7 @@ function HomePage () {
                     </div>
                     <div>
                         <div className='menuButton'>
-                        <div><a href=""><img src={vehicle} alt="" className='menuIcon'/></a></div>
+                        <div><a href="/VehicleDetails"><img src={vehicle} alt="" className='menuIcon'/></a></div>
                     </div>
                     <p className='menuButtonText'>Vehicle Details</p>
                     </div>
@@ -78,7 +78,7 @@ function HomePage () {
                     </div>
                     
                 </div>
-            </body>
+            </div>
         </div>
     )
 }

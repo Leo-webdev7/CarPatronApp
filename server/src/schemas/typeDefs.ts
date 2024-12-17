@@ -51,6 +51,7 @@ const typeDefs = `
   }
 
   input ServiceInput {
+    vin: String!
     name: String!
     serviceType: ServiceType!
     date_performed: String!
@@ -71,13 +72,15 @@ const typeDefs = `
     getUser(username: String!): User
     getVehicles: [Vehicle]
     getVehicle: Vehicle
+    getServices(vin: String!): [Service]
+    getExpenses(vin: String!): [Service]
   }
 
   type Mutation {
     login(username: String!, password: String!): Auth
     addUser(input: UserInput!): Auth
     addVehicle(input: VehicleInput!): User
-    addService(vin: String!, input: ServiceInput!): User
+    addService(input: ServiceInput!): User
   }
 
 `;

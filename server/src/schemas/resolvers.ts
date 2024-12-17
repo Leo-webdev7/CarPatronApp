@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import Vehicle from '../models/Vehicle.js'
 import Service from '../models/Service.js'
+import { IService } from '../models/Service.js';
 import { signToken, AuthenticationError } from '../services/auth.js';
 
 interface User {
@@ -40,17 +41,19 @@ interface Service {
     is_overdue: boolean;
 }
 
-// interface AddServiceArgs {
-//     input: {
-//         vin: string;
-//         name: string;
-//         date_performed: string;
-//         mileage_performed: number;
-//         cost: number;
-//         description: string;
-//         is_overdue: boolean;
-//     }
-// }
+interface AddServiceArgs {
+    input: {
+        vin: string;
+        // serviceType is an enum; its either 'SERVICE' or 'EXPENSE'
+        serviceType: 'SERVICE' | 'EXPENSE';
+        name: string;
+        date_performed: string;
+        mileage_performed: number;
+        cost: number;
+        description: string;
+        is_overdue: boolean;
+    }
+}
 
 interface AddUserArgs {
   input:{
@@ -94,6 +97,52 @@ const resolvers = {
             }
             throw new AuthenticationError('You must be logged in to view this information.');
         },
+        
+        getServices: async (_parent: any, { vin }: { vin: string }, context: Context): Promise<IService[] | null> => {
+            try {
+                if (context.user) {
+                    // Find the user and get the specific vehicle by its _id
+                    const user = await User.findOne(
+                        { _id: context.user._id, 'vehicles.vin': vin },
+                        { 'vehicles.$': 1 } // Only include the matched vehicle
+                    );
+
+                    // Return the services array if the vehicle is found
+                    const vehicle = user?.vehicles[0];
+                    const services = vehicle?.services || [];
+
+                    // Filter services based on serviceType 'SERVICE'
+                    return services.filter(service => service.serviceType === 'SERVICE');
+                }
+                throw new Error("User not authenticated");
+            } catch (err) {
+                console.error("Error fetching services:", err);
+                throw new Error("Could not retrieve services");
+            }
+        },
+
+        getExpenses: async (_parent: any, { vin }: { vin: string }, context: Context): Promise<IService[] | null> => {
+            try {
+                if (context.user) {
+                    // Find the user and get the specific vehicle by its _id
+                    const user = await User.findOne(
+                        { _id: context.user._id, 'vehicles.vin': vin },
+                        { 'vehicles.$': 1 } // Only include the matched vehicle
+                    );
+
+                    // Return the services array if the vehicle is found
+                    const vehicle = user?.vehicles[0];
+                    const services = vehicle?.services || [];
+
+                    // Filter services based on serviceType 'SERVICE'
+                    return services.filter(service => service.serviceType === 'EXPENSE');
+                }
+                throw new Error("User not authenticated");
+            } catch (err) {
+                console.error("Error fetching services:", err);
+                throw new Error("Could not retrieve services");
+            }
+        },
         // getVehicle: async (_parent: any, _args: any, context: Context): Promise<Vehicle | null> => {
 
         //     if (context.user) {
@@ -125,12 +174,12 @@ const resolvers = {
         login: async (_parent: any, {username, password}: {username: string, password: string}) => {
             const user = await User.findOne({username});
             if (!user) {
-                throw new AuthenticationError('Cound not authenticate user');
+                throw new AuthenticationError('Could not authenticate user');
             }
 
             const correctPassword = await user.isCorrectPassword(password);
             if (!correctPassword) {
-                throw new AuthenticationError('Cound not authenticate user');
+                throw new AuthenticationError('Could not authenticate user');
                 // removing this error for now because passwords aren't being hashed in seeds
             }
 
@@ -197,19 +246,23 @@ const resolvers = {
 
         // },
 
-        // addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
-        //     if (context.user && input) {
-        //         const { vin, name, date_performed, mileage_performed, cost, description, is_overdue } = input;
-        //         const newService = { name, date_performed, mileage_performed, cost, description, is_overdue };
+        addService: async (_parent: any, { input }: AddServiceArgs, context: Context): Promise<User | null> => {
+            if (context.user && input) {
+                const { vin, name, serviceType, date_performed, mileage_performed, cost, description, is_overdue } = input;
+                const newService = { name, serviceType, date_performed, mileage_performed, cost, description, is_overdue };
 
-        //         return await User.findOneAndUpdate(
-        //             { _id: context.user._id, 'vehicles.vin': { vin } },
-        //             { $addToSet: { 'vehicles.services': newService } },
-        //             { new: true }
-        //         );
-        //     };
-        //     throw new Error("Failed to add service");
-        // },
+                if (!['SERVICE', 'EXPENSE'].includes(serviceType)) {
+                    throw new Error('Invalid serviceType');
+                }
+
+                return await User.findOneAndUpdate(
+                    { _id: context.user._id, 'vehicles.vin': vin },
+                    { $push: { 'vehicles.$.services': newService } },
+                    { new: true }
+                );
+            };
+            throw new Error("Failed to add service");
+        },
 
         // updateService: async (_parent: any, { input }: AddUserArgs): Promise<User | null> => {
 

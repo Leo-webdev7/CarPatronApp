@@ -20,6 +20,7 @@ html, body,
   width: 100%;
   margin: 0;
   padding: 0;
+  min-width: 320px;
 }
 
 /* .App {
@@ -42,37 +43,6 @@ body {
   margin: 0 auto;
 }
 
-/* nav.updated-nav-tk {
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto 30px;
-  padding: 0;
-}
-
-nav.updated-nav-tk ul {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-nav.updated-nav-tk li {
-  display: inline-block;
-}
-
-nav.updated-nav-tk a {
-  color: #681e67; 
-  padding: 10px;
-  font-size: 20px;
-  border-radius: 15px;
-}
-
-nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
-  color: #681e67;
-  background: #abdad9;
-} */
-
 /* -       Login Page & Signup Page-------- */
 
 .login-page, .signup-page {
@@ -83,10 +53,6 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   text-align:center;
   padding-bottom: 100px;
 }
-
-/* .signup-page {
-  background: linear-gradient(180deg, #FFFFFF 70.5%, #FB86A4 100%);
-} */
 
 .login-page h1, .signup-page h1 {
   color: #84BFF7;
@@ -109,21 +75,25 @@ nav.updated-nav-tk a:hover, nav.updated-nav-tk a.active {
   display: none;
 }
 
-.login-wrap input, .signup-wrap input {
+.login-wrap input, .signup-wrap input, .login-wrap select, 
+.signup-wrap select, .addService-wrap input, .addService-wrap select,
+.reminders-box input, .reminders-box select {
   color: #000;
   width: 100%;
   margin-bottom: 1em;
   background: #fff;
   padding: 10px;
+  border: 1px solid #000;
 }
-.login-wrap button[type=submit], .signup-wrap button[type=submit] {
+.login-wrap button[type=submit], .signup-wrap button[type=submit], .addService-wrap button[type=submit], #reminderForm button.saveButton {
   width: 125px;
   text-transform: uppercase;
   color: #fff;
   font-weight: 600;
   font-size: 20px;
   background: #84BFF7;
-  margin-bottom: 1.5em;
+  margin-bottom: 0 auto 1.5em;
+  display: block;
   padding: 10px;
   border: 0px solid transparent;
   cursor: pointer;
@@ -169,7 +139,7 @@ header {
 }
 
 header .logoutButton {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   font-size: 1em;
@@ -179,10 +149,11 @@ header .logoutButton {
 
 h1 {
   font-family: Inter;
-  font-size: 64px;
+  font-size: 3em;
+  text-align: center;
   font-weight: 500;
-  line-height: 77.45px;
-  color: #84BFF7;
+  color: #2e7bc4;
+  padding-bottom: 20px;
 }
 
 p {
@@ -192,21 +163,20 @@ p {
   line-height: 24.2px;
 }
 
-/* -       Profile Page -------- */
-
-.user-profile .user-profile-img {
+.page-img {
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 0px;
   text-align: center;
-  width: 5%;
+  width: 90px;
 }
+
+/* -       Profile Page -------- */
 
 .profile-box {
   display: flex;
   justify-content: left;
   align-items: center;
 }
-
 
 .profile-box ul {
   list-style: none;
@@ -231,7 +201,7 @@ p {
 }
 
 .saveButton {
-    width: 125px;
+    width: 250px;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
@@ -273,180 +243,19 @@ p {
   display:block;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .vehicle-profile select {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 5px;
 }
 
-/* -       Footer Help Line -------- */
-footer {
-  display: flex;
-  /* background-color: #D9D9D9; */
-  text-align: center;
-  padding: 10px;
-  /* border-top: 1px solid #ccc; */
-  /* position: fixed; */
-  /* bottom: 0; */
-  width: 100%;
-  font-size: 20px;
-}
-
-.footer-reference a {
-  color: #649460;
-  text-decoration: none;
-}
-
-.footer-reference a.call {
-  color: #002BC1;
-  text-decoration: underline;
-}
-
-.footer-text {
-  font-family: Inter;
-  color: #000;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 24.2px;
-}
-
-.footer-call {
-  color: #00A911;
-}
-
-.footer-link {
-  color: #002BC1;
-  text-decoration: underline;
-}
-
-/* NavMenu styles */
-/* src/components/NavMenu.css */
-
-nav {
- /*  background-color: #533174; Bootstrap primary color */
-  padding: 20px 10px; /* Padding for nav */
-  width: 100%;
-  max-width: 480px;
-}
-
-nav ul {
-  list-style: none; /* Remove bullet points */
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-  display: flex; /* Use flexbox for horizontal layout */
-  flex-direction: column;
-}
-/* 
-nav li {
- margin-right: 20px;  Space between items 
-}
-*/
-nav a {
-  color: white; /* Text color */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Bold text */
-  transition: color 0.3s; /* Transition for hover effect */
-}
-
-nav a:hover {
-  color: #ffd700; /* Gold color on hover */
-}
-
-nav button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 324px;
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  color: white;
-}
-
-nav button:hover {
-  transform: scale(1.07);
-  transition: transform 0.2s;
-}
-
-.homeButton {
-  background-color: #6cda8aab;
-  color: #0e215a;
-  font-family: Inter;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 43.57px;
-}
-
-.journalButton {
-  background-color: #82C8C6AB;
-  color: #CE335B;
-  font-family: Inter;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 43.57px;
-}
-
-.calendarButton {
-  background-color: #ECB537B5;
-  color: #5C00AA;
-  font-family: Inter;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 43.57px;
-}
-
-
-.nav-icon {
-  margin-right: 10px;
-  width: 40px;
-  height: 40px;
-}
-
-/* --------- Journal Page ----------- */
-
-.journal-page h1 /* How Are You?*/ {
-  color: #6A1D67;
-  font-size: 24px;
-} 
-.journal-page h2 /* What's affecting your Mood? / What have you been up to?*/ {
-  color: #6A1D67;
-  font-size: 20px;
-}
-
-.journal-page .tags {
-  background: #E7A144;
-  color: #000;
-  max-width: 400px;
+ul.vehicle-details {
+  list-style: none;
+  line-height: 2em;
   margin: 0 auto;
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.journal-page .tags .tag-button {
-  background: gray;
-  border-radius: 5px;
-  flex: 0 0 auto;
-}
-
-.journal-page textarea {
-  border-radius: 5px;
-  background: #ABDAD9;
-  color: #000;
-  font-size: 16px;
-}
-
-.journal-page input[type=submit] {
-  width: 125px;
-  text-transform: uppercase;
-  cursor: pointer;
+  padding: 0;
 }
 
 /* Calendar.css */
@@ -558,43 +367,6 @@ nav button:hover {
   display: none;
 }
  
-
-/* JournalEntry */
-
-.journal-entry {
-  max-width: 500px;
-  margin: 0 auto 20px;
-  padding: 20px;
-  background-color: #bfedf8;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.journal-entry p {
-  line-height: 2em;
-  display: flex;
-  justify-content: left;
-  column-gap: 20px;
-}
-
-.journal-entry p strong {
-  flex: 1 0 25%;
-  text-align: left;
-}
-
-.journal-entry p span {
-  flex: 1 0 75%;
-  text-align: left;
-}
-
-.journal-calendar-text {
-  font-size: 1.2em;
-  line-height: 1.1;
-  margin: 10px;
-} 
-
-
 .submitButton {
   padding: 10px 20px;
   border: none;
@@ -681,7 +453,6 @@ nav button:hover {
 
 .backButton {
   width: 35px;
-  margin-left: 800px;
   margin-top: 0px;
 }
 
@@ -698,17 +469,21 @@ nav button:hover {
     }
 
 .icon-grid {
-      width: 30%;
-      height: 50%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 20px;
-      background: white;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  gap:10px;
+  padding: 10px;
+  background: rgb(230, 228, 228);
+  border: 2px solid #000000;
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: #000000;
+  margin: 0 auto;  
+}
 
 .menuIcon {
   margin: 5px;
@@ -729,24 +504,26 @@ nav button:hover {
     }
 
 .menuButton {
-      height: 150px;
-      width: 100px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0px;
-      background-color: none;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
-      margin-top: 20px;
-    }
+  height: auto;
+  width: 100%;
+  max-width: 60px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  margin-top: 20px;
+  box-shadow: #000 0px 0px 10px;
+  background-color:#c7aff8; 
+}    
 
 .menuButton:hover {
       background-color: #8898aa;
@@ -772,7 +549,7 @@ nav button:hover {
 /* General container styling */
 .income-source {
     margin: 20px auto;
-    padding: 20px;
+    padding: 0;
     max-width: 800px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -815,65 +592,62 @@ tr:nth-child(odd) {
     background-color: #fff;
 }
 
+/* Mobile friendly services/expenses table */
+
+.income-source ul {
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 600px;
+}
+
+.income-source ul li {
+  text-align: center;
+  padding: 10px;
+  width: 20%;
+  border: 1px solid #CCC;
+}
+
+.income-source ul li:nth-child(even) {
+    background-color: #c7def3;
+}
+
+.income-source ul li:nth-child(odd) {
+    background-color: #fff;
+}
+
+.income-source ul li strong {
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  padding-bottom:2px;
+  margin-bottom: 5px;
+}
+
 /* Specific column styling */
 #date {
+    color: #333;
+    /* font-weight: bold; */
+}
+
+#cost {
+    color: #333;
+}
+
+#mileage {
     color: #333;
     font-weight: bold;
 }
 
-#cost {
-    color: #007bff;
-}
-
-#mileage {
-    color: #28a745;
-    font-weight: bold;
-}
-
 #title {
-    color: #6c757d;
+    color: #333;
 }
 
 #description {
-  color: #7f3785;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-    .income-source {
-        padding: 10px;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-}
-.icon-grid {
-  width: 75%;
-  height: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:10px;
-  padding: 10px;
-  background: rgb(230, 228, 228);
-  border: 2px solid #000000;
-  border-radius: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  background-color: #000000;
-  margin-left: 0;
-  margin-right: 0;
-  
-}
-
-.menuButton {
-  box-shadow: #000 0px 0px 10px;
-  background-color:#c7aff8; 
-  padding-bottom: 10px;
-  box-shadow: #007bff 0px 0px 12px;
+  color: #333;
 }
 
 
@@ -883,7 +657,6 @@ tr:nth-child(odd) {
   width: 100%;
   padding: 5px;
 }
-
 
 .backButton img {
   background-color: #c7aff8;
@@ -909,6 +682,7 @@ div.headerSmall {
   margin-top:0;
   background-color: #000000;
 }
+
 
 .custom-body {
       background-image: linear-gradient(120deg, #6f98fa 0%, #fb696e 100%);
@@ -977,4 +751,83 @@ img.user-profile-img {
   background-color: #c7aff8;
   border-radius: 20px;
   text-shadow: #007bff 0px 0px 10px;
+}
+body {
+  background-color:#ffffff;
+}
+
+/* Service records page */
+
+.addService-wrap {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  min-width: 300px;
+  background: #E7E5E5;
+  padding: 20px;
+  margin: 0 auto 20px;
+  border: 2px solid #3B3535;
+}
+
+.service-select {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+    
+    .income-source {
+        padding: 10px;
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .income-source ul {
+      flex-flow: column;
+        min-width: 240px;
+    }
+    .income-source ul li {width: 100%;}
+}
+@media screen and (max-width: 400px) {
+  
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 361px) {
+  .menuButton {
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menuButtonText {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .menuButton {
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menuButtonText {
+    font-size: 9px;
+  }
+
+  .icon-grid {
+    height: 60%;
+  }
 }

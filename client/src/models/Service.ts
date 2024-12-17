@@ -1,7 +1,10 @@
 export interface Service {
+  vin: string;
   name: string | null;
-  date: string | null;
+  serviceType: 'SERVICE' | 'EXPENSE';
+  date_performed: string | null;
   mileage_performed: number;
   cost: number;
-  is_outdated: boolean;
+  description: string;
+  is_overdue: boolean;
 }

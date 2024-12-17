@@ -47,27 +47,21 @@ export const ADD_VEHICLE = gql`
 export const ADD_SERVICE = gql`
   mutation addService($input: ServiceInput!) {
     addService(input: $input) {
-          services {
-            name
-            date
-            mileage_performed
-            cost
-            is_outdated
-          }
+      _id
+      username
+      email
+      vehicles {
+        vin
+        services {
+          name
+          serviceType
+          date_performed
+          mileage_performed
+          cost
+          description
+          is_overdue
+        }
       }
     }
-`;
-
-export const ADD_EXPENSE = gql`
-  mutation addExpense($input: ServiceInput!) {
-    addExpense(input: $input) {
-          expenses {
-            name
-            date
-            mileage_performed
-            cost
-            is_outdated
-          }
-      }
-    }
+  }
 `;

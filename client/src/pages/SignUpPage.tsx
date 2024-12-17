@@ -13,6 +13,7 @@ const SignUpPage = () => {
   <>
     <div className="signup-page">
       <Header />
+      <h1>Sign Up</h1>
       <SignUpForm/>
     </div>
   </> 

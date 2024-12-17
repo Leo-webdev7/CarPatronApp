@@ -1,15 +1,13 @@
 import {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
-// import { Link } from 'react-router-dom';
 import {useState} from 'react';
 import { GET_ME } from '../apollo/queries';
 import HeaderSmall from '../components/HeaderSmall';
 import type { User } from '../models/User';
+import vehicle from '../assets/icons/vehicle.svg';
 
 const VehicleDetails = () => {
-  // const { profileId } = useParams();
   const { loading, data } = useQuery(GET_ME);
-
   const [selectedValue, setSelectedValue] = useState<string>('');
 
   useEffect(() => {
@@ -23,11 +21,16 @@ const VehicleDetails = () => {
     return <div>Loading...</div>;
   }
   const userData: User = data.me;
+
+  const selectedVehicle = userData.vehicles.find(vehicle => vehicle.vin === selectedValue);
+
+
   return (
     <div>
       <HeaderSmall />
       <div className="vehicle-details">
-        <img src="../src/assets/vehicle-profile.png" alt="profile logo" className="vehicle-details-img"/>
+        <img src={vehicle} alt="vehicle icon" className="page-img"/>
+        <h1>Vehicle Details</h1>
         <div className='vehicle-profile box'>
           <div className="number-of-vehicles">
           {userData.vehicles.length ? (
@@ -40,24 +43,22 @@ const VehicleDetails = () => {
             )}
             </div>
             <select value={selectedValue} onChange={handleChange}>
-              <option value="">Select an option</option>
-              {userData.vehicles.map((vehicle) => (
-                <option key={vehicle.make} value={vehicle.make ?? ''}>
-                  {vehicle.make} {vehicle.car_model} {vehicle.year}
-                </option>
-              ))}
-            </select>
-          {userData.vehicles.map((vehicle:any) => {
-            return (
-              <ul key={vehicle._id}>
-                <li><strong>Make:</strong>  {vehicle.make}</li>
-                <li><strong>Model:</strong>  {vehicle.car_model}</li>
-                <li><strong>Year:</strong> {vehicle.year}</li>
-                <li><strong>VIN:</strong> {vehicle.vin}</li>
-                <li><strong>Mileage:</strong> {vehicle.mileage}</li>
-              </ul>
-             );
-           })}
+            <option value="">Select an option</option>
+            {userData.vehicles.map((vehicle) => (
+              <option key={vehicle.vin} value={vehicle.vin ?? ''}>
+                {vehicle.make} {vehicle.car_model} {vehicle.year}
+              </option>
+            ))}
+          </select>
+          {selectedVehicle && (
+            <ul className='vehicle-details'>
+              <li><strong>Make:</strong> {selectedVehicle.make}</li>
+              <li><strong>Model:</strong> {selectedVehicle.car_model}</li>
+              <li><strong>Year:</strong> {selectedVehicle.year}</li>
+              <li><strong>VIN:</strong> {selectedVehicle.vin}</li>
+              <li><strong>Mileage:</strong> {selectedVehicle.mileage}</li>
+            </ul>
+          )}
         </div>
       </div>
     </div>
