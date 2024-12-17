@@ -45,7 +45,6 @@ const VehicleExpenses = () => {
     };
 
 
-function VehicleExpenses() {
     useEffect(() => {
         document.body.classList.add('custom-body');
     }, []);
