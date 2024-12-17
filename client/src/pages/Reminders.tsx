@@ -1,4 +1,5 @@
 
+import {useEffect} from 'react';
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 import clock from '../assets/icons/clock-alarm.svg';
@@ -7,6 +8,11 @@ import { useState } from 'react';
 function Reminders() {
   const [selectedFrequency, setSelectedFrequency] = useState("once");
   const [customDate, setCustomDate] = useState("");
+
+  useEffect(() => {
+    // Add class to body when component mounts
+    document.body.classList.add('custom-body');
+}, []);
 
   const handleFrequencyChange = (e: any) => {
     setSelectedFrequency(e.target.value);

@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import { useQuery } from '@apollo/client';
 import {useState} from 'react';
 import { GET_ME } from '../apollo/queries';
@@ -8,6 +9,10 @@ import vehicle from '../assets/icons/vehicle.svg';
 const VehicleDetails = () => {
   const { loading, data } = useQuery(GET_ME);
   const [selectedValue, setSelectedValue] = useState<string>('');
+
+  useEffect(() => {
+    document.body.classList.add('custom-body');
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedValue(event.target.value);
