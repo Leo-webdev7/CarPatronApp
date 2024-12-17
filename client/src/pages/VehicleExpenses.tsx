@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+// import {useEffect} from 'react';
 import '../App.css';
 import HeaderSmall from '../components/HeaderSmall';
 import { GET_ME, GET_EXPENSES } from '../apollo/queries';
