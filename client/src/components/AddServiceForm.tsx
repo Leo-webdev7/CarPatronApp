@@ -82,7 +82,7 @@ const AddServiceForm = ({ vehicleVin }: AddServiceFormProps) => {
   };
 
   return (
-    <div className="signup-wrap">
+    <div className="">
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant="danger">
           Something went wrong while adding the service record!
